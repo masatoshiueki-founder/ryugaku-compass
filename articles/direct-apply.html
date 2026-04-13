@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="留学エージェント不要。認定語学学校への直接申込ガイド。カナダ・オーストラリア・NZ・英国・アイルランドの実際の申込ページへのリンクと手順を掲載。">
+  <title>エージェント不要｜語学学校への直接申込ガイド【国別・学校別リンク付き】 - 留学コンパス</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../article.css">
+  <style>
+    .school-grid {
+      display: flex; flex-direction: column; gap: 16px;
+      margin: 24px 0 40px;
+    }
+    .school-card {
+      background: #fff;
+      border: 1.5px solid #E8E5E0;
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .school-card:hover {
+      border-color: #FF4828;
+      box-shadow: 0 4px 20px rgba(255,72,40,0.08);
+    }
+    .school-name {
+      font-size: 1.05rem; font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .school-meta {
+      font-size: 0.82rem; color: #888;
+      margin-bottom: 10px;
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .school-badge {
+      display: inline-block;
+      background: #E6F7ED; color: #1A7A3F;
+      font-size: 0.72rem; font-weight: 700;
+      padding: 2px 10px; border-radius: 50px;
+    }
+    .school-features {
+      font-size: 0.87rem; color: #555;
+      line-height: 1.7;
+    }
+    .apply-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #FF4828; color: #fff;
+      padding: 12px 20px; border-radius: 8px;
+      font-weight: 700; font-size: 0.88rem;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .apply-btn:hover { background: #e03820; }
+    .apply-btn-secondary {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #F5F1EB; color: #0F0F0F;
+      padding: 12px 20px; border-radius: 8px;
+      font-weight: 700; font-size: 0.88rem;
+      white-space: nowrap;
+      border: 1.5px solid #E8E5E0;
+      transition: border-color 0.2s;
+    }
+    .apply-btn-secondary:hover { border-color: #FF4828; }
+    .school-actions { display: flex; flex-direction: column; gap: 8px; min-width: 140px; }
+    .country-anchor {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 22px;
+      background: #0F0F0F; border-radius: 12px;
+      color: #fff; font-weight: 700;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+    }
+    .country-anchor:hover { background: #1A1A1A; }
+    .country-anchor .ca-flag { font-size: 1.6rem; }
+    .country-anchor .ca-label { flex: 1; }
+    .country-anchor .ca-arrow { color: #FF4828; }
+    .step-flow {
+      display: flex; align-items: flex-start; gap: 0;
+      margin: 28px 0 40px; flex-wrap: wrap;
+    }
+    .step-item {
+      flex: 1; min-width: 140px;
+      text-align: center; padding: 20px 12px;
+      position: relative;
+    }
+    .step-item::after {
+      content: '→';
+      position: absolute; right: -6px; top: 28px;
+      color: #FF4828; font-size: 1.2rem; font-weight: 900;
+    }
+    .step-item:last-child::after { display: none; }
+    .step-num {
+      width: 40px; height: 40px;
+      background: #FF4828; color: #fff;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1rem;
+      margin: 0 auto 10px;
+    }
+    .step-title { font-size: 0.88rem; font-weight: 800; margin-bottom: 4px; }
+    .step-sub { font-size: 0.78rem; color: #888; line-height: 1.6; }
+    .country-section { margin-bottom: 64px; }
+    .country-section-title {
+      font-size: 1.4rem; font-weight: 900;
+      padding: 20px 24px;
+      background: #F5F1EB;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .accreditation-badge {
+      font-size: 0.72rem; font-weight: 700;
+      background: #0F0F0F; color: #fff;
+      padding: 3px 10px; border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+    .direct-tip {
+      background: #FFF5F3;
+      border: 1.5px solid #FFCDC6;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 24px 0;
+      font-size: 0.88rem; color: #CC3010;
+      line-height: 1.8;
+    }
+    .direct-tip strong { color: #CC3010; }
+    @media (max-width: 600px) {
+      .school-card { grid-template-columns: 1fr; }
+      .school-actions { flex-direction: row; }
+      .step-item::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="../" class="logo">
+        <span class="logo-mark">🧭</span>
+        <span class="logo-text">留学コンパス</span>
+      </a>
+      <nav class="nav">
+        <a href="../#quiz">留学先診断</a>
+        <a href="../#simulator">費用計算</a>
+        <a href="../#countries">国別ガイド</a>
+        <a href="../#parents">親向け</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="article-hero">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../">ホーム</a><span>›</span><span>直接申込ガイド</span>
+    </div>
+    <span class="article-label">Direct Enrollment</span>
+    <h1 class="article-title">エージェント不要<br>語学学校への直接申込ガイド</h1>
+    <div class="article-meta">
+      <span>最終更新: 2025年4月</span>
+      <span>掲載校は全て政府認定校</span>
+      <span>読了時間: 約8分</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-body">
+  <a href="../" class="back-link">← 留学コンパスに戻る</a>
+
+  <div class="info-box">
+    <h4>💰 直接申込で節約できる金額</h4>
+    <ul>
+      <li>エージェント手数料の相場：語学学校＋住居費の<strong>15〜25%</strong></li>
+      <li>3ヶ月留学の場合：<strong>15〜30万円</strong>の節約</li>
+      <li>6ヶ月留学の場合：<strong>30〜55万円</strong>の節約</li>
+      <li>全ての掲載校は直接申込可能・日本語サポートあり</li>
+    </ul>
+  </div>
+
+  <!-- 申込フロー -->
+  <h2>直接申込の流れ（5ステップ）</h2>
+  <div class="step-flow">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-title">学校を選ぶ</div>
+      <div class="step-sub">下のリストから気になる学校をクリック</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-title">無料テスト</div>
+      <div class="step-sub">英語レベル診断（オンライン・無料）</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-title">申込フォーム</div>
+      <div class="step-sub">希望コース・期間・開始日を入力</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-title">入学金支払い</div>
+      <div class="step-sub">クレジットカード or 銀行送金</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-title">ビザ申請</div>
+      <div class="step-sub">入学許可書（LoA）を使って申請</div>
+    </div>
+  </div>
+
+  <div class="direct-tip">
+    <strong>⚠️ 直接申込の注意点：</strong>
+    学校とのやり取りは基本的に英語です。ただし下記の学校は全て日本語問い合わせ対応または日本語スタッフが在籍しています。英語に不安がある場合は「I'm a Japanese student interested in applying. Do you have Japanese-speaking staff?」と最初のメールに書けば対応してもらえます。
+  </div>
+
+  <!-- 国別ジャンプ -->
+  <h2>国を選んで申し込む</h2>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:48px;">
+    <a href="#canada" class="country-anchor">
+      <span class="ca-flag">🇨🇦</span>
+      <span class="ca-label">カナダ（バンクーバー・トロント）</span>
+      <span class="ca-arrow">→</span>
+    </a>
+    <a href="#australia" class="country-anchor">
+      <span class="ca-flag">🇦🇺</span>
+      <span class="ca-label">オーストラリア（シドニー・メルボルン）</span>
+      <span class="ca-arrow">→</span>
+    </a>
+    <a href="#nz" class="country-anchor">
+      <span class="ca-flag">🇳🇿</span>
+      <span class="ca-label">ニュージーランド（オークランド）</span>
+      <span class="ca-arrow">→</span>
+    </a>
+    <a href="#uk" class="country-anchor">
+      <span class="ca-flag">🇬🇧</span>
+      <span class="ca-label">イギリス（ロンドン・ブライトン・エディンバラ）</span>
+      <span class="ca-arrow">→</span>
+    </a>
+    <a href="#ireland" class="country-anchor">
+      <span class="ca-flag">🇮🇪</span>
+      <span class="ca-label">アイルランド（ダブリン・コーク・ゴールウェイ）</span>
+      <span class="ca-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- カナダ -->
+  <div class="country-section" id="canada">
+    <div class="country-section-title">
+      🇨🇦 カナダの語学学校
+      <span class="accreditation-badge">Languages Canada 認定</span>
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div>
+          <div class="school-name">ILAC（International Language Academy of Canada）</div>
+          <div class="school-meta">
+            <span>📍 バンクーバー・トロント</span>
+            <span>週 ¥28,000〜40,000</span>
+            <span class="school-badge">Languages Canada 認定</span>
+          </div>
+          <div class="school-features">
+            カナダ最大規模の語学学校。日本語スタッフ在籍。留学生の満足度が高く、バンクーバー・トロントの両方に校舎。直接申込フォームあり。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://ilac.com/general-english-adult/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+          <a href="https://ilac.com/contact/" target="_blank" rel="noopener" class="apply-btn-secondary">問い合わせ</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">EC English（イーシーイングリッシュ）</div>
+          <div class="school-meta">
+            <span>📍 バンクーバー・トロント・モントリオール</span>
+            <span>週 ¥30,000〜45,000</span>
+            <span class="school-badge">Languages Canada 認定</span>
+          </div>
+          <div class="school-features">
+            世界30都市に展開するグローバルチェーン。SNS・アクティビティが充実。多国籍の生徒が多く、英語を話す機会が豊富。直接オンライン申込可能。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://ecenglish.com/en/schools/canada/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">Kaplan International Languages</div>
+          <div class="school-meta">
+            <span>📍 バンクーバー・トロント</span>
+            <span>週 ¥27,000〜42,000</span>
+            <span class="school-badge">Languages Canada 認定</span>
+          </div>
+          <div class="school-features">
+            世界50都市以上に展開する最大規模チェーン。オンラインで授業料の事前見積もり可能。プログラムの種類が豊富（一般英語・試験対策・ビジネス英語）。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.kaplaninternational.com/language-courses/english" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">※ Languages Canada（LC）はカナダ政府が承認した語学学校の認定団体です。LC加盟校は品質基準を満たすことが証明されています。</p>
+  </div>
+
+  <!-- オーストラリア -->
+  <div class="country-section" id="australia">
+    <div class="country-section-title">
+      🇦🇺 オーストラリアの語学学校
+      <span class="accreditation-badge">ELICOS / CRICOS 認定</span>
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div>
+          <div class="school-name">LSI（Language Studies International）</div>
+          <div class="school-meta">
+            <span>📍 シドニー・ブリスベン・パース</span>
+            <span>週 ¥28,000〜42,000</span>
+            <span class="school-badge">ELICOS / CRICOS 認定</span>
+          </div>
+          <div class="school-features">
+            世界15都市に展開。ELICOS認定校。日本語問い合わせ対応。オーストラリア各都市の校舎を選択して直接申込可能。長期割引あり。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.lsi.edu/en/english/australia/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">Kaplan International Languages（オーストラリア）</div>
+          <div class="school-meta">
+            <span>📍 シドニー・メルボルン・ゴールドコースト・ブリスベン</span>
+            <span>週 ¥30,000〜45,000</span>
+            <span class="school-badge">ELICOS / CRICOS 認定</span>
+          </div>
+          <div class="school-features">
+            オーストラリア4都市に校舎。サイトからコースと都市を選んで直接申込。学校側が宿泊先（ホームステイ・寮）の手配も対応。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.kaplaninternational.com/language-courses/english" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">※ CRICOS（Commonwealth Register of Institutions and Courses for Overseas Students）はオーストラリア政府が管理する留学生向け機関の登録制度です。CRICOS登録校のみ留学生を受け入れることができます。</p>
+  </div>
+
+  <!-- NZ -->
+  <div class="country-section" id="nz">
+    <div class="country-section-title">
+      🇳🇿 ニュージーランドの語学学校
+      <span class="accreditation-badge">NZQA 認定</span>
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div>
+          <div class="school-name">NZLC（New Zealand Language Centres）</div>
+          <div class="school-meta">
+            <span>📍 オークランド・ウェリントン</span>
+            <span>週 ¥22,000〜35,000</span>
+            <span class="school-badge">NZQA 認定</span>
+          </div>
+          <div class="school-features">
+            NZ国内で最も実績のある語学学校の一つ。週あたりの料金がNZ最安水準。日本語スタッフ在籍。ホームステイの手配も直接対応。申込フォームが日本語対応。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://nzlc.ac.nz/enrolment-process/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">Excel Education（エクセル）</div>
+          <div class="school-meta">
+            <span>📍 オークランド</span>
+            <span>週 ¥20,000〜32,000</span>
+            <span class="school-badge">NZQA 認定</span>
+          </div>
+          <div class="school-features">
+            NZ最安水準の学費。少人数クラス制（最大14名）。オークランド中心部に立地。日本人スタッフ在籍。英語ゼロから受け入れ可能。コスパ最優先の人におすすめ。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.excel.ac.nz/enrol/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">※ NZQA（New Zealand Qualifications Authority）はNZ政府の学歴資格認定機関。NZQA登録校は品質基準を満たしています。</p>
+  </div>
+
+  <!-- イギリス -->
+  <div class="country-section" id="uk">
+    <div class="country-section-title">
+      🇬🇧 イギリスの語学学校
+      <span class="accreditation-badge">British Council / Accreditation UK 認定</span>
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div>
+          <div class="school-name">BLS（British Language Centre）</div>
+          <div class="school-meta">
+            <span>📍 ロンドン・ブライトン</span>
+            <span>週 ¥32,000〜50,000</span>
+            <span class="school-badge">British Council 認定</span>
+          </div>
+          <div class="school-features">
+            イギリスで最も歴史ある語学学校の一つ。British Council認定。オンライン申込フォームが整備されており直接申込しやすい。ロンドン・ブライトンから選択可能。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.bls.org.uk/apply-online/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">LSI（Language Studies International）UK</div>
+          <div class="school-meta">
+            <span>📍 ロンドン・ブライトン・エディンバラ・オックスフォード</span>
+            <span>週 ¥33,000〜55,000</span>
+            <span class="school-badge">British Council 認定</span>
+          </div>
+          <div class="school-features">
+            英国内4都市に校舎。エディンバラ（スコットランド）への入学も可。週の費用がロンドンより25〜30%安いエディンバラ・ブライトンも人気。直接申込フォームあり。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.lsi.edu/en/english/uk/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">EC English（イーシーイングリッシュ）UK</div>
+          <div class="school-meta">
+            <span>📍 ロンドン・ブライトン・マンチェスター</span>
+            <span>週 ¥35,000〜58,000</span>
+            <span class="school-badge">British Council 認定</span>
+          </div>
+          <div class="school-features">
+            グローバルチェーンのUK校。アクティビティ・SNSコミュニティが充実。多国籍の生徒比率が高く英語環境に優れる。各都市の詳細をサイトで比較して申込可能。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://ecenglish.com/en/schools/uk/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">※ British Council認定（Accreditation UK）はイギリス政府が認定した最高水準の語学学校に与えられる資格です。</p>
+  </div>
+
+  <!-- アイルランド -->
+  <div class="country-section" id="ireland">
+    <div class="country-section-title">
+      🇮🇪 アイルランドの語学学校
+      <span class="accreditation-badge">MEI / ACELS 認定</span>
+    </div>
+
+    <div class="school-grid">
+      <div class="school-card">
+        <div>
+          <div class="school-name">ILAC Dublin（アイラック ダブリン）</div>
+          <div class="school-meta">
+            <span>📍 ダブリン</span>
+            <span>週 ¥28,000〜42,000</span>
+            <span class="school-badge">MEI 認定</span>
+          </div>
+          <div class="school-features">
+            カナダILACとは別のアイルランド系語学学校。ダブリン中心部に立地。日本語問い合わせ対応。コスパが良く日本人留学生に人気。ヨーロッパ旅行の拠点としても最適な立地。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.ilac.ie/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">GCI（Galway Cultural Institute）</div>
+          <div class="school-meta">
+            <span>📍 ゴールウェイ（アイルランド西部）</span>
+            <span>週 ¥24,000〜36,000</span>
+            <span class="school-badge">MEI / ACELS 認定</span>
+          </div>
+          <div class="school-features">
+            アイルランドの文化・音楽の中心地ゴールウェイにある学校。ダブリンより20〜25%安い。少人数クラス制。本物のアイリッシュ文化を体験したい人向け。日本人が少なく英語環境が良好。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://www.gci.ie/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+
+      <div class="school-card">
+        <div>
+          <div class="school-name">EC English（イーシーイングリッシュ）アイルランド</div>
+          <div class="school-meta">
+            <span>📍 ダブリン</span>
+            <span>週 ¥30,000〜44,000</span>
+            <span class="school-badge">MEI 認定</span>
+          </div>
+          <div class="school-features">
+            グローバルチェーンのアイルランド校。多国籍の生徒が集まり英語環境が良好。EC独自のアクティビティプログラムでダブリン探索も楽しめる。直接申込可能。
+          </div>
+        </div>
+        <div class="school-actions">
+          <a href="https://ecenglish.com/en/schools/ireland/" target="_blank" rel="noopener" class="apply-btn">申込ページ →</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">※ MEI（Marketing English in Ireland）はアイルランド政府教育省が認定した語学学校の団体。MEI加盟校は定期的な品質検査を受けています。</p>
+  </div>
+
+  <!-- 申込時のメールテンプレート -->
+  <h2>学校への最初のメール（コピペOKテンプレート）</h2>
+  <p>学校に問い合わせる場合、以下のテンプレートをそのままコピーして使えます：</p>
+
+  <div class="info-box">
+    <h4>📧 問い合わせメール（英語テンプレート）</h4>
+    <div style="background:#fff;border:1px solid #E8E5E0;border-radius:8px;padding:16px;font-family:monospace;font-size:0.85rem;line-height:1.9;white-space:pre-wrap;">Subject: Inquiry about General English Course
+
+Dear Admissions Team,
+
+I am a Japanese high school student interested in studying
+at your school.
+
+I would like to study General English for [X weeks/months],
+starting from [preferred month] [year].
+
+Could you please send me information about:
+1. Available courses and schedules
+2. Tuition fees
+3. Homestay or accommodation options
+4. The enrollment process
+
+Do you have Japanese-speaking staff available?
+
+Thank you for your time. I look forward to your reply.
+
+Best regards,
+[Your name]
+[Your email]
+Japan</div>
+  </div>
+
+  <div class="cta-box">
+    <h4>🧭 どの学校にすればいいか迷ったら</h4>
+    <p>留学先診断テストで、あなたの予算・期間・目的に合った国と学校スタイルを5問で診断できます。</p>
+    <a href="../#quiz">留学先診断テストを受ける →</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-logo">🧭 留学コンパス</p>
+        <p class="footer-tagline">高校生のための、正直な留学ガイド</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 留学コンパス. 掲載リンクは各学校の公式サイトです。最新の料金・コース情報は各学校公式サイトでご確認ください。</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
