@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📊 留学コンパス｜業務ダッシュボード</title>
+  <style>
+    :root {
+      --blue: #3a5bd9; --light: #eef2ff; --text: #1a1a2e;
+      --green: #22c55e; --orange: #f59e0b; --red: #ef4444; --gray: #9ca3af;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; background: #f4f6fb; color: var(--text); }
+
+    /* ===== ヘッダー ===== */
+    .topbar {
+      background: var(--blue); color: #fff;
+      padding: 16px 28px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .topbar h1 { font-size: 1.1rem; font-weight: 800; }
+    .topbar span { font-size: 0.82rem; opacity: 0.8; }
+
+    /* ===== レイアウト ===== */
+    .layout { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+
+    /* ===== サイドバー ===== */
+    .sidebar { background: #fff; border-right: 1px solid #e5e7eb; padding: 24px 0; }
+    .sidebar-section { margin-bottom: 8px; }
+    .sidebar-label { font-size: 0.7rem; font-weight: 700; color: var(--gray); letter-spacing: 0.08em; padding: 0 20px 6px; }
+    .sidebar a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 20px; font-size: 0.9rem; color: #555;
+      transition: all 0.15s; text-decoration: none;
+    }
+    .sidebar a:hover, .sidebar a.active { background: var(--light); color: var(--blue); font-weight: 600; }
+    .sidebar a span { font-size: 1rem; }
+
+    /* ===== メイン ===== */
+    .main { padding: 28px; overflow-y: auto; }
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ===== カード ===== */
+    .card { background: #fff; border-radius: 14px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .card-title { font-size: 0.78rem; font-weight: 700; color: var(--gray); letter-spacing: 0.06em; margin-bottom: 6px; }
+    .card-value { font-size: 2rem; font-weight: 900; }
+    .card-sub { font-size: 0.82rem; color: var(--gray); margin-top: 4px; }
+
+    /* ===== KPIグリッド ===== */
+    .kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px,1fr)); gap: 16px; margin-bottom: 24px; }
+
+    /* ===== セクションヘッダー ===== */
+    .section-hd { font-size: 1.1rem; font-weight: 800; margin-bottom: 14px; }
+
+    /* ===== 組織図 ===== */
+    .org { display: flex; flex-direction: column; align-items: center; gap: 0; }
+    .org-box {
+      border-radius: 12px; padding: 14px 28px; font-weight: 700; text-align: center;
+      font-size: 0.95rem; position: relative;
+    }
+    .org-line { width: 2px; height: 24px; background: #d1d5db; }
+    .org-owner { background: #1a1a2e; color: #fff; font-size: 1rem; padding: 16px 40px; }
+    .org-ceo { background: var(--blue); color: #fff; }
+    .org-employees { display: flex; gap: 12px; margin-top: 0; flex-wrap: wrap; justify-content: center; }
+    .org-emp {
+      background: #fff; border: 2px solid var(--blue);
+      border-radius: 10px; padding: 10px 16px;
+      font-size: 0.82rem; font-weight: 600; color: var(--blue);
+      text-align: center;
+    }
+    .org-emp .emp-icon { font-size: 1.3rem; display: block; margin-bottom: 4px; }
+
+    /* ===== タスクリスト ===== */
+    .task-list { display: flex; flex-direction: column; gap: 10px; }
+    .task {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: #fff; border-radius: 10px; padding: 14px 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .task-status {
+      width: 10px; height: 10px; border-radius: 50%;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .status-done { background: var(--green); }
+    .status-wip  { background: var(--orange); }
+    .status-todo { background: var(--gray); }
+    .task-body h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 3px; }
+    .task-body p  { font-size: 0.8rem; color: #666; }
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; margin-left: 8px;
+    }
+    .badge-done { background: #dcfce7; color: #16a34a; }
+    .badge-wip  { background: #fef3c7; color: #d97706; }
+    .badge-todo { background: #f3f4f6; color: #6b7280; }
+
+    /* ===== 指示の使い方 ===== */
+    .how-to { display: flex; flex-direction: column; gap: 20px; }
+    .step {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: #fff; border-radius: 12px; padding: 20px 22px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-weight: 900; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+    .step p  { font-size: 0.85rem; color: #555; line-height: 1.7; }
+    code {
+      background: #f4f6fb; border: 1px solid #e5e7eb;
+      border-radius: 6px; padding: 2px 8px;
+      font-family: 'Courier New', monospace; font-size: 0.85rem;
+    }
+    pre {
+      background: #1a1a2e; color: #e2e8f0;
+      border-radius: 10px; padding: 16px 20px;
+      font-size: 0.83rem; line-height: 1.8;
+      overflow-x: auto; margin: 10px 0;
+    }
+    pre .prompt { color: #60a5fa; }
+    pre .cmd    { color: #4ade80; }
+    pre .comment { color: #94a3b8; }
+
+    /* ===== コンテンツ進捗 ===== */
+    .progress-list { display: flex; flex-direction: column; gap: 10px; }
+    .prog-item {
+      background: #fff; border-radius: 10px; padding: 14px 18px;
+      display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .prog-icon { font-size: 1.4rem; }
+    .prog-info { flex: 1; }
+    .prog-info h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+    .prog-bar-wrap { height: 6px; background: #e5e7eb; border-radius: 99px; }
+    .prog-bar { height: 6px; border-radius: 99px; background: var(--blue); }
+
+    /* ===== レスポンシブ ===== */
+    @media (max-width: 700px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>🧭 留学コンパス｜業務ダッシュボード</h1>
+  <span id="now"></span>
+</div>
+
+<div class="layout">
+
+  <!-- ===== サイドバー ===== -->
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <p class="sidebar-label">メニュー</p>
+      <a href="#" class="active" onclick="show('overview',this)"><span>📊</span> 全体概要</a>
+      <a href="#" onclick="show('org',this)"><span>🏢</span> 組織図</a>
+      <a href="#" onclick="show('tasks',this)"><span>✅</span> タスク進捗</a>
+      <a href="#" onclick="show('howto',this)"><span>📖</span> 使い方ガイド</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">サイトリンク</p>
+      <a href="index.html" target="_blank"><span>🌐</span> サイトを見る</a>
+      <a href="articles/canada.html" target="_blank"><span>🇨🇦</span> カナダ記事</a>
+    </div>
+    <div class="sidebar-section">
+      <p class="sidebar-label">業務資料</p>
+      <a href="business/affiliate-targets.md" target="_blank"><span>💰</span> 提携先リスト</a>
+      <a href="business/content-calendar.md" target="_blank"><span>📅</span> コンテンツ計画</a>
+    </div>
+  </nav>
+
+  <!-- ===== メインエリア ===== -->
+  <main class="main">
+
+    <!-- ── 全体概要 ── -->
+    <div id="page-overview" class="page active">
+      <p style="color:#888;font-size:0.82rem;margin-bottom:18px;">留学コンパス｜事業ダッシュボード</p>
+      <h2 class="section-hd">📊 今月のステータス</h2>
+      <div class="kpi-grid">
+        <div class="card">
+          <p class="card-title">公開ページ数</p>
+          <p class="card-value" style="color:var(--blue)">2</p>
+          <p class="card-sub">目標：20ページ</p>
+        </div>
+        <div class="card">
+          <p class="card-title">月間PV（目標）</p>
+          <p class="card-value" style="color:var(--orange)">0</p>
+          <p class="card-sub">3ヶ月後：500PV目標</p>
+        </div>
+        <div class="card">
+          <p class="card-title">アフィリエイト収益</p>
+          <p class="card-value" style="color:var(--green)">¥0</p>
+          <p class="card-sub">立ち上げフェーズ</p>
+        </div>
+        <div class="card">
+          <p class="card-title">SNSフォロワー</p>
+          <p class="card-value" style="color:var(--blue)">0</p>
+          <p class="card-sub">3ヶ月後：500人目標</p>
+        </div>
+      </div>
+
+      <h2 class="section-hd" style="margin-top:8px">📋 コンテンツ進捗</h2>
+      <div class="progress-list">
+        <div class="prog-item">
+          <span class="prog-icon">🇨🇦</span>
+          <div class="prog-info">
+            <h4>カナダ留学ガイド <span class="badge badge-done">完成</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:100%"></div></div>
+          </div>
+        </div>
+        <div class="prog-item">
+          <span class="prog-icon">🇦🇺</span>
+          <div class="prog-info">
+            <h4>オーストラリア留学ガイド <span class="badge badge-todo">未着手</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="prog-item">
+          <span class="prog-icon">🇳🇿</span>
+          <div class="prog-info">
+            <h4>ニュージーランド留学ガイド <span class="badge badge-todo">未着手</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="prog-item">
+          <span class="prog-icon">🇬🇧</span>
+          <div class="prog-info">
+            <h4>イギリス留学ガイド <span class="badge badge-todo">未着手</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="prog-item">
+          <span class="prog-icon">🇮🇪</span>
+          <div class="prog-info">
+            <h4>アイルランド留学ガイド <span class="badge badge-todo">未着手</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="prog-item">
+          <span class="prog-icon">💰</span>
+          <div class="prog-info">
+            <h4>A8.net アフィリエイト登録 <span class="badge badge-todo">未着手</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="prog-item">
+          <span class="prog-icon">📱</span>
+          <div class="prog-info">
+            <h4>Instagram アカウント開設 <span class="badge badge-todo">未着手</span></h4>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 組織図 ── -->
+    <div id="page-org" class="page">
+      <h2 class="section-hd">🏢 会社の組織図</h2>
+      <div class="card" style="padding:40px 24px">
+        <div class="org">
+          <div class="org-box org-owner">👑 あなた（オーナー）<br><small style="font-weight:400;font-size:0.8rem">方向性を決める・指示を出す</small></div>
+          <div class="org-line"></div>
+          <div class="org-box org-ceo">👔 AI CEO<br><small style="font-weight:400;font-size:0.8rem">claude-opus-4-6・思考して委任</small></div>
+          <div class="org-line"></div>
+          <div class="org-employees">
+            <div class="org-emp"><span class="emp-icon">🔬</span>研究員<br><small>researcher</small></div>
+            <div class="org-emp"><span class="emp-icon">✍️</span>ライター<br><small>writer</small></div>
+            <div class="org-emp"><span class="emp-icon">📊</span>アナリスト<br><small>analyst</small></div>
+            <div class="org-emp"><span class="emp-icon">💻</span>プログラマー<br><small>programmer</small></div>
+            <div class="org-emp"><span class="emp-icon">🎯</span>ストラテジスト<br><small>strategist</small></div>
+            <div class="org-emp"><span class="emp-icon">🎨</span>デザイナー<br><small>designer</small></div>
+            <div class="org-emp"><span class="emp-icon">👥</span>人事担当<br><small>hr</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <h3 style="font-size:1rem;font-weight:800;margin-bottom:14px">👤 各ポジションの役割</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="font-size:1.3rem">👑</span>
+            <div><strong>あなた（オーナー）</strong><br><span style="font-size:0.85rem;color:#666">「〇〇をやって」と指示するだけ。週2〜4時間。</span></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="font-size:1.3rem">👔</span>
+            <div><strong>AI CEO（claude-opus-4-6）</strong><br><span style="font-size:0.85rem;color:#666">指示を分析・分解して最適な従業員に振り分け。成果を統合して報告。</span></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="font-size:1.3rem">🔬</span>
+            <div><strong>研究員（researcher）</strong><br><span style="font-size:0.85rem;color:#666">留学先・費用・制度・競合サイトの徹底調査。</span></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="font-size:1.3rem">✍️</span>
+            <div><strong>ライター（writer）</strong><br><span style="font-size:0.85rem;color:#666">SEO記事・SNS投稿・メルマガ・ガイドPDFの作成。</span></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="font-size:1.3rem">📊</span>
+            <div><strong>アナリスト（analyst）</strong><br><span style="font-size:0.85rem;color:#666">どの記事を作るべきか、何が伸びているかを分析。</span></div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start">
+            <span style="font-size:1.3rem">🎯</span>
+            <div><strong>ストラテジスト（strategist）</strong><br><span style="font-size:0.85rem;color:#666">アフィリエイト提携先・収益化戦略の立案。</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── タスク進捗 ── -->
+    <div id="page-tasks" class="page">
+      <h2 class="section-hd">✅ タスク一覧</h2>
+      <div class="task-list">
+        <div class="task"><div class="task-status status-done"></div><div class="task-body"><h4>Webサイト（index.html）作成 <span class="badge badge-done">完了</span></h4><p>トップページ・デザイン・全セクション完成</p></div></div>
+        <div class="task"><div class="task-status status-done"></div><div class="task-body"><h4>カナダ留学ガイド記事作成 <span class="badge badge-done">完了</span></h4><p>費用・都市比較・ビザ・準備手順を網羅</p></div></div>
+        <div class="task"><div class="task-status status-done"></div><div class="task-body"><h4>Gitリポジトリ初期化 <span class="badge badge-done">完了</span></h4><p>ryugaku-compassフォルダをgit管理下に置いた</p></div></div>
+        <div class="task"><div class="task-status status-wip"></div><div class="task-body"><h4>Webサイト公開（Netlify） <span class="badge badge-wip">進行中</span></h4><p>netlify.com/drop にフォルダをドラッグして公開</p></div></div>
+        <div class="task"><div class="task-status status-todo"></div><div class="task-body"><h4>GitHubアカウント作成 <span class="badge badge-todo">未着手</span></h4><p>github.com でアカウントを作る（無料）</p></div></div>
+        <div class="task"><div class="task-status status-todo"></div><div class="task-body"><h4>オーストラリア留学ガイド作成 <span class="badge badge-todo">未着手</span></h4><p>AI CEOに「オーストラリア記事を作って」と指示</p></div></div>
+        <div class="task"><div class="task-status status-todo"></div><div class="task-body"><h4>A8.net 登録・アフィリエイト設定 <span class="badge badge-todo">未着手</span></h4><p>a8.net で登録 → 留学・保険カテゴリで申請</p></div></div>
+        <div class="task"><div class="task-status status-todo"></div><div class="task-body"><h4>Instagram アカウント開設 <span class="badge badge-todo">未着手</span></h4><p>@ryugaku_compass などのアカウントを作る</p></div></div>
+        <div class="task"><div class="task-status status-todo"></div><div class="task-body"><h4>残り4カ国ガイド作成 <span class="badge badge-todo">未着手</span></h4><p>NZ・UK・アイルランド・オーストラリア</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── 使い方ガイド ── -->
+    <div id="page-howto" class="page">
+      <h2 class="section-hd">📖 AI会社の使い方</h2>
+      <div class="how-to">
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>AI会社を起動する</h3>
+            <p>コマンドプロンプト（cmd）を開いて以下を実行：</p>
+            <pre><span class="comment"># まず移動</span>
+<span class="cmd">cd C:\Users\masat\OneDrive\Desktop\company</span>
+
+<span class="comment"># APIキーを設定（毎回必要）</span>
+<span class="cmd">set ANTHROPIC_API_KEY=sk-ant-ここにキーを貼る</span>
+
+<span class="comment"># 起動</span>
+<span class="cmd">python main.py</span></pre>
+            <p>起動すると <code>👑 オーナー指示 &gt;</code> と表示されます。</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>指示の出し方（例文集）</h3>
+            <p>自然な日本語で話しかけるだけでOKです：</p>
+            <pre><span class="prompt">👑 オーナー指示 &gt;</span> <span class="cmd">オーストラリア留学ガイドを作って。
+費用・都市比較・語学学校・ビザの内容で、
+canada.htmlと同じ形式のHTMLにして</span>
+
+<span class="prompt">👑 オーナー指示 &gt;</span> <span class="cmd">A8.netで提携申請するための
+自己紹介メールのテンプレートを作って</span>
+
+<span class="prompt">👑 オーナー指示 &gt;</span> <span class="cmd">Instagramに投稿する「カナダ留学費用比較」の
+キャプションと画像案を作って</span>
+
+<span class="prompt">👑 オーナー指示 &gt;</span> <span class="cmd">競合サイトを調べて、うちのサイトが
+勝てるポイントを分析して</span></pre>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>CEOが自動で従業員に振り分ける</h3>
+            <p>
+              指示を出すと、AI CEOが内容を分析して最適な従業員（researcher・writer・strategistなど）に
+              自動でタスクを振り分けます。<br>
+              あなたは待つだけで、数分後にレポートが完成します。
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>成果物をサイトに反映する</h3>
+            <p>
+              CEOのレポートに記事が出てきたら、<br>
+              <code>ryugaku-compass/articles/</code> フォルダに .html ファイルとして保存。<br>
+              その後 Netlify に再アップロードすれば公開完了です。
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="background:var(--light);box-shadow:none">
+          <h3 style="font-weight:800;margin-bottom:10px;color:var(--blue)">💡 週ごとの使い方のコツ</h3>
+          <ul style="font-size:0.88rem;color:#444;line-height:2;padding-left:20px">
+            <li><strong>月曜</strong>：今週やることをCEOに宣言する（「今週はNZの記事を作りたい」）</li>
+            <li><strong>平日</strong>：CEOの成果物をチェック、Instagramに投稿する</li>
+            <li><strong>週末</strong>：新しい記事をサイトにアップ、来週の方針を決める</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  // 時刻表示
+  function updateTime() {
+    const now = new Date();
+    document.getElementById('now').textContent =
+      now.toLocaleString('ja-JP', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'});
+  }
+  updateTime(); setInterval(updateTime, 60000);
+
+  // ページ切り替え
+  function show(pageId, linkEl) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + pageId).classList.add('active');
+    linkEl.classList.add('active');
+    return false;
+  }
+</script>
+</body>
+</html>
