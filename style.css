@@ -269,7 +269,84 @@ img { max-width: 100%; }
   background: #F8F5F0; border-radius: 10px;
   padding: 14px 18px; font-size: 0.9rem;
 }
-.result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
+
+/* 診断結果（詳細版） */
+.quiz-step-num {
+  font-size: 0.78rem; font-weight: 700;
+  color: #888; letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+.result-rank-1 {
+  background: #fff; border: 2px solid #FF4828;
+  border-radius: 20px; padding: 28px 32px; margin-bottom: 16px;
+  text-align: left;
+}
+.result-rank-label {
+  font-size: 0.8rem; font-weight: 700; color: #FF4828;
+  letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.result-country {
+  font-size: 1.8rem; font-weight: 900;
+  margin-bottom: 12px; text-align: left;
+}
+.result-reason {
+  font-size: 0.95rem; color: #444;
+  line-height: 1.8; margin-bottom: 20px;
+  max-width: none; margin-left: 0; margin-right: 0;
+}
+.result-stat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 10px; margin-bottom: 20px;
+}
+.r-stat {
+  background: #F8F5F0; border-radius: 10px;
+  padding: 12px 14px; font-size: 0.82rem;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.r-stat span { color: #888; font-size: 0.75rem; }
+.r-stat strong { font-size: 0.85rem; }
+.result-schools { border-top: 1px solid #F0EDE8; padding-top: 18px; }
+.result-schools-title {
+  font-size: 0.82rem; font-weight: 700; color: #555;
+  margin-bottom: 12px;
+}
+.result-school-list { display: flex; flex-direction: column; gap: 8px; }
+.result-school-link {
+  display: block; background: #F8F5F0; border-radius: 10px;
+  padding: 10px 16px; font-size: 0.88rem; color: #3a5bd9;
+  transition: background 0.2s;
+}
+.result-school-link:hover { background: #EEF2FF; }
+.result-rank-2 {
+  background: #F8F5F0; border-radius: 14px;
+  padding: 18px 24px; margin-bottom: 16px;
+}
+.result-rank-2 .result-rank-label { margin-bottom: 8px; color: #888; }
+.result-rank-2-inner {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.result-country-2 { font-size: 1.1rem; font-weight: 800; }
+.result-reason-2 { font-size: 0.85rem; color: #666; flex: 1; }
+.result-rank-2-link {
+  font-size: 0.85rem; font-weight: 700; color: #3a5bd9;
+  white-space: nowrap;
+}
+.result-whv-note {
+  background: #FFF7F0; border: 1px solid #FFD4C0;
+  border-radius: 12px; padding: 18px 22px; margin-bottom: 16px;
+  font-size: 0.9rem; line-height: 1.75;
+}
+.result-whv-note strong { color: #FF4828; display: block; margin-bottom: 6px; }
+.result-guide-link { text-align: center; }
+.btn-dark-outline {
+  display: inline-block;
+  border: 2px solid #0F0F0F; color: #0F0F0F;
+  padding: 12px 28px; border-radius: 50px;
+  font-weight: 700; font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-dark-outline:hover { background: #0F0F0F; color: #fff; }
 
 /* ===== 費用シミュレーター ===== */
 .sim-section { background: #0F0F0F; }
@@ -536,7 +613,8 @@ details[open] .faq-q::after {
   .quiz-wrap { padding: 28px 20px; }
   .country-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-top { flex-direction: column; }
-  .result-stat-grid { grid-template-columns: 1fr; }
+  .result-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .result-rank-2-inner { flex-direction: column; align-items: flex-start; }
   .sim-inputs { flex-direction: column; }
 }
 @media (max-width: 480px) {

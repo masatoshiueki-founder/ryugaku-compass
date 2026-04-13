@@ -22,6 +22,7 @@
         <a href="#simulator">費用計算</a>
         <a href="#countries">国別ガイド</a>
         <a href="articles/direct-apply.html">直接申込</a>
+        <a href="articles/preparation.html">準備リスト</a>
         <a href="#parents">親向け</a>
       </nav>
       <a href="articles/direct-apply.html" class="header-cta">直接申込ガイド →</a>
@@ -96,123 +97,227 @@
   <div class="container">
     <div class="section-label">TOOL 01</div>
     <h2 class="section-title">あなたに合う留学先を診断する</h2>
-    <p class="section-sub">5つの質問で、あなたに最適な留学先を見つけます</p>
+    <p class="section-sub">10の質問で、あなたに最適な留学先と語学学校を提案します</p>
 
     <div class="quiz-wrap" id="quizWrap">
       <!-- Q1 -->
       <div class="quiz-step active" data-step="1">
-        <div class="quiz-progress">
-          <div class="quiz-bar" style="width:20%"></div>
-        </div>
-        <p class="quiz-q">Q1. 留学の予算（総額・3ヶ月の場合）は？</p>
+        <div class="quiz-progress"><div class="quiz-bar" style="width:10%"></div></div>
+        <div class="quiz-step-num">1 / 10</div>
+        <p class="quiz-q">留学の一番の目的は？</p>
         <div class="quiz-options">
-          <button class="quiz-btn" data-q="1" data-v="low" onclick="quizAnswer(1,'low')">
-            <span class="q-icon">🟢</span>
-            <span class="q-label">できるだけ安く（〜80万円）</span>
+          <button class="quiz-btn" onclick="quizAnswer(1,'english')">
+            <span class="q-icon">📈</span>
+            <span class="q-label">英語力を本気で伸ばしたい</span>
           </button>
-          <button class="quiz-btn" data-q="1" data-v="mid" onclick="quizAnswer(1,'mid')">
-            <span class="q-icon">🟡</span>
-            <span class="q-label">普通くらい（80〜120万円）</span>
+          <button class="quiz-btn" onclick="quizAnswer(1,'study')">
+            <span class="q-icon">🎓</span>
+            <span class="q-label">海外大学・大学院進学の準備</span>
           </button>
-          <button class="quiz-btn" data-q="1" data-v="high" onclick="quizAnswer(1,'high')">
-            <span class="q-icon">🔴</span>
-            <span class="q-label">多少高くても充実感重視（120万円〜）</span>
+          <button class="quiz-btn" onclick="quizAnswer(1,'experience')">
+            <span class="q-icon">🌍</span>
+            <span class="q-label">異文化体験・視野を広げたい</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(1,'whv')">
+            <span class="q-icon">💼</span>
+            <span class="q-label">将来のワーキングホリデーを検討中</span>
           </button>
         </div>
       </div>
 
       <!-- Q2 -->
       <div class="quiz-step" data-step="2">
-        <div class="quiz-progress">
-          <div class="quiz-bar" style="width:40%"></div>
-        </div>
-        <p class="quiz-q">Q2. 好きな気候・環境は？</p>
+        <div class="quiz-progress"><div class="quiz-bar" style="width:20%"></div></div>
+        <div class="quiz-step-num">2 / 10</div>
+        <p class="quiz-q">予算はどのくらい？（3ヶ月換算の総費用）</p>
         <div class="quiz-options">
-          <button class="quiz-btn" onclick="quizAnswer(2,'warm')">
-            <span class="q-icon">☀️</span>
-            <span class="q-label">暖かい・海がある</span>
+          <button class="quiz-btn" onclick="quizAnswer(2,'low')">
+            <span class="q-icon">🟢</span>
+            <span class="q-label">できるだけ安く（〜80万円）</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(2,'nature')">
-            <span class="q-icon">🌿</span>
-            <span class="q-label">自然・山・アウトドア</span>
+          <button class="quiz-btn" onclick="quizAnswer(2,'mid')">
+            <span class="q-icon">🟡</span>
+            <span class="q-label">標準的な範囲で（80〜120万円）</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(2,'city')">
-            <span class="q-icon">🏙️</span>
-            <span class="q-label">都市・文化・歴史</span>
-          </button>
-          <button class="quiz-btn" onclick="quizAnswer(2,'any')">
-            <span class="q-icon">🌍</span>
-            <span class="q-label">どこでもOK</span>
+          <button class="quiz-btn" onclick="quizAnswer(2,'high')">
+            <span class="q-icon">🔴</span>
+            <span class="q-label">充実感重視で（120万円〜）</span>
           </button>
         </div>
       </div>
 
       <!-- Q3 -->
       <div class="quiz-step" data-step="3">
-        <div class="quiz-progress">
-          <div class="quiz-bar" style="width:60%"></div>
-        </div>
-        <p class="quiz-q">Q3. 今の英語レベルは？</p>
+        <div class="quiz-progress"><div class="quiz-bar" style="width:30%"></div></div>
+        <div class="quiz-step-num">3 / 10</div>
+        <p class="quiz-q">留学の期間はどのくらい考えている？</p>
         <div class="quiz-options">
-          <button class="quiz-btn" onclick="quizAnswer(3,'zero')">
-            <span class="q-icon">📚</span>
-            <span class="q-label">ほぼゼロ（英語は苦手）</span>
-          </button>
-          <button class="quiz-btn" onclick="quizAnswer(3,'basic')">
-            <span class="q-icon">💬</span>
-            <span class="q-label">中学レベル（簡単な会話はできる）</span>
+          <button class="quiz-btn" onclick="quizAnswer(3,'short')">
+            <span class="q-icon">📅</span>
+            <span class="q-label">2〜4週間（夏休み・短期集中）</span>
           </button>
           <button class="quiz-btn" onclick="quizAnswer(3,'mid')">
-            <span class="q-icon">🗣️</span>
-            <span class="q-label">高校レベル（ある程度話せる）</span>
+            <span class="q-icon">🗓️</span>
+            <span class="q-label">1〜3ヶ月</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(3,'long')">
+            <span class="q-icon">🌐</span>
+            <span class="q-label">半年以上（本格的に)</span>
           </button>
         </div>
       </div>
 
       <!-- Q4 -->
       <div class="quiz-step" data-step="4">
-        <div class="quiz-progress">
-          <div class="quiz-bar" style="width:80%"></div>
-        </div>
-        <p class="quiz-q">Q4. 一番大切にしたいことは？</p>
+        <div class="quiz-progress"><div class="quiz-bar" style="width:40%"></div></div>
+        <div class="quiz-step-num">4 / 10</div>
+        <p class="quiz-q">好きな環境・気候は？</p>
         <div class="quiz-options">
-          <button class="quiz-btn" onclick="quizAnswer(4,'safe')">
-            <span class="q-icon">🛡️</span>
-            <span class="q-label">とにかく安全・安心</span>
+          <button class="quiz-btn" onclick="quizAnswer(4,'warm')">
+            <span class="q-icon">☀️</span>
+            <span class="q-label">温暖・海・ビーチが好き</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(4,'europe')">
-            <span class="q-icon">✈️</span>
-            <span class="q-label">ヨーロッパ旅行も楽しみたい</span>
+          <button class="quiz-btn" onclick="quizAnswer(4,'nature')">
+            <span class="q-icon">🏔️</span>
+            <span class="q-label">自然・山・アウトドアが好き</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(4,'value')">
-            <span class="q-icon">💰</span>
-            <span class="q-label">コスパ最優先</span>
+          <button class="quiz-btn" onclick="quizAnswer(4,'city')">
+            <span class="q-icon">🏙️</span>
+            <span class="q-label">都市・歴史・文化が好き</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(4,'english')">
-            <span class="q-icon">🎯</span>
-            <span class="q-label">本格的な英語環境</span>
+          <button class="quiz-btn" onclick="quizAnswer(4,'any')">
+            <span class="q-icon">🎲</span>
+            <span class="q-label">どこでもOK・環境より他が大事</span>
           </button>
         </div>
       </div>
 
       <!-- Q5 -->
       <div class="quiz-step" data-step="5">
-        <div class="quiz-progress">
-          <div class="quiz-bar" style="width:100%"></div>
-        </div>
-        <p class="quiz-q">Q5. 留学の期間は？</p>
+        <div class="quiz-progress"><div class="quiz-bar" style="width:50%"></div></div>
+        <div class="quiz-step-num">5 / 10</div>
+        <p class="quiz-q">クラスの日本人の多さについては？</p>
         <div class="quiz-options">
-          <button class="quiz-btn" onclick="quizAnswer(5,'short')">
-            <span class="q-icon">📅</span>
-            <span class="q-label">2〜4週間（短期）</span>
+          <button class="quiz-btn" onclick="quizAnswer(5,'low')">
+            <span class="q-icon">🌏</span>
+            <span class="q-label">日本人は少ない方がいい（英語環境を徹底したい）</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(5,'mid')">
-            <span class="q-icon">🗓️</span>
-            <span class="q-label">1〜3ヶ月</span>
+          <button class="quiz-btn" onclick="quizAnswer(5,'some')">
+            <span class="q-icon">🤝</span>
+            <span class="q-label">少しいると安心（初留学なので）</span>
           </button>
-          <button class="quiz-btn" onclick="quizAnswer(5,'long')">
-            <span class="q-icon">🌐</span>
-            <span class="q-label">半年以上</span>
+          <button class="quiz-btn" onclick="quizAnswer(5,'any')">
+            <span class="q-icon">😊</span>
+            <span class="q-label">気にしない</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-step" data-step="6">
+        <div class="quiz-progress"><div class="quiz-bar" style="width:60%"></div></div>
+        <div class="quiz-step-num">6 / 10</div>
+        <p class="quiz-q">留学中にヨーロッパ旅行もしたいですか？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(6,'yes')">
+            <span class="q-icon">✈️</span>
+            <span class="q-label">ぜひしたい！パリ・バルセロナなど行きたい</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(6,'maybe')">
+            <span class="q-icon">🤔</span>
+            <span class="q-label">できればいいかな、という程度</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(6,'no')">
+            <span class="q-icon">📚</span>
+            <span class="q-label">留学先の国を深く楽しみたい</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-step" data-step="7">
+        <div class="quiz-progress"><div class="quiz-bar" style="width:70%"></div></div>
+        <div class="quiz-step-num">7 / 10</div>
+        <p class="quiz-q">今の英語レベルは？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(7,'zero')">
+            <span class="q-icon">📚</span>
+            <span class="q-label">ほぼゼロ（英語は苦手）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(7,'basic')">
+            <span class="q-icon">💬</span>
+            <span class="q-label">中学レベル（簡単な会話はできる）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(7,'mid')">
+            <span class="q-icon">🗣️</span>
+            <span class="q-label">高校レベル以上（ある程度話せる）</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-step" data-step="8">
+        <div class="quiz-progress"><div class="quiz-bar" style="width:80%"></div></div>
+        <div class="quiz-step-num">8 / 10</div>
+        <p class="quiz-q">趣味や好きな活動は？（最も当てはまるもの）</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(8,'ski')">
+            <span class="q-icon">🎿</span>
+            <span class="q-label">スキー・スノーボード</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(8,'surf')">
+            <span class="q-icon">🏄</span>
+            <span class="q-label">サーフィン・マリンスポーツ</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(8,'culture')">
+            <span class="q-icon">🎨</span>
+            <span class="q-label">アート・音楽・歴史・文化</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(8,'outdoor')">
+            <span class="q-icon">🥾</span>
+            <span class="q-label">ハイキング・自然・アウトドア全般</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(8,'other')">
+            <span class="q-icon">✨</span>
+            <span class="q-label">特になし・英語学習に集中したい</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-step" data-step="9">
+        <div class="quiz-progress"><div class="quiz-bar" style="width:90%"></div></div>
+        <div class="quiz-step-num">9 / 10</div>
+        <p class="quiz-q">あなたの年齢は？（ワーキングホリデーの判定に使います）</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(9,'under18')">
+            <span class="q-icon">🏫</span>
+            <span class="q-label">17歳以下（高校生）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(9,'adult')">
+            <span class="q-icon">🎓</span>
+            <span class="q-label">18〜30歳</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-step" data-step="10">
+        <div class="quiz-progress"><div class="quiz-bar" style="width:100%"></div></div>
+        <div class="quiz-step-num">10 / 10</div>
+        <p class="quiz-q">帰国後のイメージは？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(10,'uni_abroad')">
+            <span class="q-icon">🏛️</span>
+            <span class="q-label">英語を使った大学受験（AO・推薦・英語受験）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(10,'career')">
+            <span class="q-icon">💼</span>
+            <span class="q-label">国内大学・就職で英語を活かしたい</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(10,'undecided')">
+            <span class="q-icon">🌱</span>
+            <span class="q-label">まだ決めていない・とにかく留学したい</span>
           </button>
         </div>
       </div>
@@ -220,11 +325,9 @@
       <!-- 結果 -->
       <div class="quiz-result" id="quizResult" style="display:none">
         <div class="result-badge">診断完了</div>
-        <h3 class="result-country" id="resultCountry"></h3>
-        <p class="result-reason" id="resultReason"></p>
-        <div class="result-details" id="resultDetails"></div>
+        <div id="resultContent"></div>
         <div class="result-actions">
-          <a href="#simulator" class="btn-primary">この国の費用を計算する →</a>
+          <a href="#simulator" class="btn-primary" id="resultSimBtn">この国の費用を計算する →</a>
           <button class="btn-outline" onclick="resetQuiz()">もう一度診断する</button>
         </div>
       </div>
@@ -528,9 +631,9 @@
         </div>
         <div>
           <p class="footer-col-title">その他</p>
+          <a href="articles/preparation.html">留学準備リスト</a>
           <a href="#parents">保護者の方へ</a>
           <a href="#about">このサイトについて</a>
-          <a href="#">お問い合わせ</a>
         </div>
       </div>
     </div>
@@ -541,15 +644,15 @@
 </footer>
 
 <script>
-// ===== 留学先診断 =====
+// ===== 留学先診断（10問・詳細版） =====
 const answers = {};
+const TOTAL_Q = 10;
 
 function quizAnswer(q, v) {
   answers[q] = v;
   const current = document.querySelector(`.quiz-step[data-step="${q}"]`);
   const next = document.querySelector(`.quiz-step[data-step="${q + 1}"]`);
 
-  // ハイライト選択
   current.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
   event.currentTarget.classList.add('selected');
 
@@ -565,116 +668,188 @@ function quizAnswer(q, v) {
 }
 
 function showResult() {
-  const result = calcDestination();
-  document.getElementById('resultCountry').textContent = result.country;
-  document.getElementById('resultReason').textContent = result.reason;
-  document.getElementById('resultDetails').innerHTML = result.details;
+  const { ranked, scores } = calcDestination();
+  const top = ranked[0];
+  const second = ranked[1];
+  const maxScore = scores[top.key] + scores[second.key] + 1;
 
-  // シミュレーターの国も連動
-  const simMap = {
-    'カナダ': 'canada',
-    'ニュージーランド': 'nz',
-    'オーストラリア': 'australia',
-    'イギリス': 'uk',
-    'アイルランド': 'ireland'
-  };
+  // シミュレーター連動
+  const simMap = { canada:'canada', nz:'nz', australia:'australia', uk:'uk', ireland:'ireland' };
   const simCountryEl = document.getElementById('simCountry');
-  if (simCountryEl && simMap[result.key]) {
-    simCountryEl.value = simMap[result.key];
-    calcCost();
-  }
+  if (simCountryEl) { simCountryEl.value = simMap[top.key]; calcCost(); }
 
+  // WHVヒント
+  const showWhv = answers[9] === 'adult' && answers[3] === 'long';
+  const whvHint = showWhv ? `<div class="result-whv-note">
+    <strong>💡 ワーキングホリデーも検討を</strong>
+    あなたは18〜30歳かつ半年以上の留学を希望しています。
+    ${top.key === 'australia' ? 'オーストラリア' : top.key === 'nz' ? 'ニュージーランド' : 'カナダ'}のワーキングホリデービザ（働きながら留学できる特別ビザ）が使えます。
+    語学学校に通いながらアルバイトで生活費を補うことも可能です。
+  </div>` : '';
+
+  document.getElementById('resultContent').innerHTML = `
+    <div class="result-rank-1">
+      <div class="result-rank-label">🥇 第1位おすすめ</div>
+      <h3 class="result-country">${top.flag} ${top.name}</h3>
+      <p class="result-reason">${top.reason}</p>
+      <div class="result-stat-grid">
+        <div class="r-stat"><span>治安</span><strong>${top.safety}</strong></div>
+        <div class="r-stat"><span>コスパ</span><strong>${top.value}</strong></div>
+        <div class="r-stat"><span>英語環境</span><strong>${top.english}</strong></div>
+        <div class="r-stat"><span>3ヶ月目安</span><strong>${top.cost}</strong></div>
+      </div>
+      <div class="result-schools">
+        <div class="result-schools-title">📋 おすすめ語学学校（直接申込可能）</div>
+        ${top.schools}
+      </div>
+    </div>
+    <div class="result-rank-2">
+      <div class="result-rank-label">🥈 第2位</div>
+      <div class="result-rank-2-inner">
+        <span class="result-country-2">${second.flag} ${second.name}</span>
+        <span class="result-reason-2">${second.shortReason}</span>
+        <a href="${second.guide}" class="result-rank-2-link">詳しく見る →</a>
+
+      </div>
+    </div>
+    ${whvHint}
+    <div class="result-guide-link">
+      <a href="${top.guide}" class="btn-dark-outline">${top.flag} ${top.name}の詳細ガイドを見る →</a>
+    </div>
+  `;
+  document.getElementById('resultSimBtn').href = `#simulator`;
   document.getElementById('quizResult').style.display = 'block';
 }
 
 function calcDestination() {
-  const budget = answers[1];
-  const climate = answers[2];
-  const english = answers[3];
-  const priority = answers[4];
-  const duration = answers[5];
+  const purpose  = answers[1];
+  const budget   = answers[2];
+  const duration = answers[3];
+  const climate  = answers[4];
+  const ratio    = answers[5];
+  const europe   = answers[6];
+  const english  = answers[7];
+  const hobby    = answers[8];
+  const age      = answers[9];
+  const goal     = answers[10];
 
-  // スコアリング
-  let scores = { canada: 0, nz: 0, australia: 0, uk: 0, ireland: 0 };
+  let s = { canada: 0, nz: 0, australia: 0, uk: 0, ireland: 0 };
 
-  if (budget === 'low') { scores.nz += 3; scores.canada += 1; }
-  if (budget === 'mid') { scores.canada += 2; scores.ireland += 2; scores.australia += 1; }
-  if (budget === 'high') { scores.uk += 3; scores.australia += 2; }
+  // Q1 目的
+  if (purpose==='english')    { s.canada+=2; s.uk+=2; s.ireland+=1; s.nz+=1; }
+  if (purpose==='study')      { s.uk+=4; s.australia+=2; s.canada+=2; }
+  if (purpose==='experience') { s.ireland+=3; s.uk+=2; s.nz+=2; s.australia+=1; }
+  if (purpose==='whv')        { s.australia+=4; s.nz+=3; s.canada+=2; }
 
-  if (climate === 'warm') { scores.australia += 3; scores.nz += 1; }
-  if (climate === 'nature') { scores.nz += 3; scores.canada += 2; }
-  if (climate === 'city') { scores.uk += 3; scores.ireland += 2; scores.canada += 1; }
-  if (climate === 'any') { scores.canada += 1; scores.nz += 1; scores.ireland += 1; }
+  // Q2 予算
+  if (budget==='low')  { s.nz+=4; s.canada+=1; }
+  if (budget==='mid')  { s.canada+=3; s.ireland+=2; s.nz+=1; s.australia+=1; }
+  if (budget==='high') { s.uk+=4; s.australia+=2; s.ireland+=1; }
 
-  if (priority === 'safe') { scores.canada += 3; scores.nz += 3; }
-  if (priority === 'europe') { scores.ireland += 4; scores.uk += 3; }
-  if (priority === 'value') { scores.nz += 3; scores.canada += 2; }
-  if (priority === 'english') { scores.uk += 3; scores.canada += 2; scores.ireland += 1; }
+  // Q3 期間
+  if (duration==='short') { s.canada+=2; s.nz+=2; s.ireland+=1; }
+  if (duration==='mid')   { s.canada+=2; s.australia+=2; s.ireland+=2; }
+  if (duration==='long')  { s.australia+=3; s.uk+=2; s.nz+=2; s.ireland+=1; }
 
-  if (duration === 'short') { scores.canada += 1; scores.nz += 1; scores.ireland += 1; }
-  if (duration === 'long') { scores.australia += 2; scores.nz += 1; }
+  // Q4 環境・気候
+  if (climate==='warm')   { s.australia+=4; s.nz+=1; }
+  if (climate==='nature') { s.nz+=4; s.canada+=3; }
+  if (climate==='city')   { s.uk+=4; s.ireland+=3; s.canada+=1; }
+  if (climate==='any')    { s.canada+=1; s.nz+=1; s.ireland+=1; s.australia+=1; }
 
-  const top = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+  // Q5 日本人比率
+  if (ratio==='low')  { s.nz+=3; s.ireland+=2; s.uk+=1; }
+  if (ratio==='some') { s.canada+=2; s.australia+=2; }
+  if (ratio==='any')  { /* neutral */ }
 
-  const info = {
-    canada: {
-      country: '🇨🇦 カナダ',
-      key: 'カナダ',
-      reason: 'バランスが最高。安全・多文化・コスパのすべてを兼ね備えた、高校生の留学先No.1です。',
-      details: `<div class="result-stat-grid">
-        <div class="r-stat"><strong>治安</strong>★★★★★</div>
-        <div class="r-stat"><strong>コスパ</strong>★★★★☆</div>
-        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
-        <div class="r-stat"><strong>3ヶ月目安</strong>¥70〜110万</div>
-      </div>`
-    },
-    nz: {
-      country: '🇳🇿 ニュージーランド',
-      key: 'ニュージーランド',
-      reason: '英語圏で最もコスパが高く、自然が豊か。治安も良く、初留学に最適な穴場の国です。',
-      details: `<div class="result-stat-grid">
-        <div class="r-stat"><strong>治安</strong>★★★★★</div>
-        <div class="r-stat"><strong>コスパ</strong>★★★★★</div>
-        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
-        <div class="r-stat"><strong>3ヶ月目安</strong>¥57〜93万</div>
-      </div>`
-    },
-    australia: {
-      country: '🇦🇺 オーストラリア',
-      key: 'オーストラリア',
-      reason: '温暖な気候と多様な都市。シドニー・メルボルン・ゴールドコーストで全然雰囲気が違います。',
-      details: `<div class="result-stat-grid">
-        <div class="r-stat"><strong>治安</strong>★★★★☆</div>
-        <div class="r-stat"><strong>コスパ</strong>★★★☆☆</div>
-        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
-        <div class="r-stat"><strong>3ヶ月目安</strong>¥83〜125万</div>
-      </div>`
-    },
-    uk: {
-      country: '🇬🇧 イギリス',
-      key: 'イギリス',
-      reason: '本場ブリティッシュ英語と歴史・文化。ヨーロッパ旅行の拠点にもなる充実した環境です。',
-      details: `<div class="result-stat-grid">
-        <div class="r-stat"><strong>治安</strong>★★★☆☆</div>
-        <div class="r-stat"><strong>コスパ</strong>★★☆☆☆</div>
-        <div class="r-stat"><strong>英語環境</strong>★★★★★</div>
-        <div class="r-stat"><strong>3ヶ月目安</strong>¥100〜160万</div>
-      </div>`
-    },
-    ireland: {
-      country: '🇮🇪 アイルランド',
-      key: 'アイルランド',
-      reason: '英語圏でEU内という唯一の存在。イギリスより物価が安く、ヨーロッパへのアクセスも抜群です。',
-      details: `<div class="result-stat-grid">
-        <div class="r-stat"><strong>治安</strong>★★★★☆</div>
-        <div class="r-stat"><strong>コスパ</strong>★★★★☆</div>
-        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
-        <div class="r-stat"><strong>3ヶ月目安</strong>¥75〜117万</div>
-      </div>`
-    }
-  };
-  return info[top];
+  // Q6 ヨーロッパ旅行
+  if (europe==='yes')   { s.ireland+=4; s.uk+=3; }
+  if (europe==='maybe') { s.ireland+=1; s.uk+=1; }
+  if (europe==='no')    { s.canada+=2; s.australia+=2; s.nz+=2; }
+
+  // Q7 英語レベル
+  if (english==='zero')  { s.canada+=2; s.nz+=2; s.australia+=1; }
+  if (english==='basic') { s.canada+=2; s.australia+=2; s.ireland+=1; }
+  if (english==='mid')   { s.uk+=2; s.ireland+=2; s.australia+=1; }
+
+  // Q8 趣味
+  if (hobby==='ski')     { s.nz+=4; s.canada+=3; }
+  if (hobby==='surf')    { s.australia+=4; s.nz+=1; }
+  if (hobby==='culture') { s.uk+=4; s.ireland+=3; }
+  if (hobby==='outdoor') { s.nz+=3; s.canada+=3; }
+  if (hobby==='other')   { s.canada+=1; }
+
+  // Q9 年齢
+  if (age==='under18') { s.canada+=1; s.nz+=1; }
+  if (age==='adult')   { s.australia+=1; s.nz+=1; }
+
+  // Q10 帰国後目標
+  if (goal==='uni_abroad') { s.uk+=3; s.canada+=2; s.australia+=1; }
+  if (goal==='career')     { s.canada+=2; s.australia+=2; s.uk+=1; }
+  if (goal==='undecided')  { s.canada+=1; }
+
+  const ranked = Object.entries(s).sort((a,b) => b[1]-a[1]).map(([key]) => countryInfo[key]);
+  return { ranked, scores: s };
 }
+
+const countryInfo = {
+  canada: {
+    key: 'canada', flag: '🇨🇦', name: 'カナダ',
+    reason: 'バランスが最高。安全・多文化・コスパの3つを兼ね備えた、高校生の留学先No.1。バンクーバーは「世界で最も住みやすい都市」の常連で、治安も抜群です。',
+    shortReason: '安全・コスパ・多文化のバランスが最高',
+    safety: '★★★★★', value: '★★★★☆', english: '★★★★☆', cost: '¥70〜110万',
+    guide: 'articles/canada.html',
+    schools: `<div class="result-school-list">
+      <a href="https://ilac.com/general-english-adult/" target="_blank" rel="noopener" class="result-school-link">ILAC（バンクーバー・トロント） — 日本語スタッフ在籍 →</a>
+      <a href="https://ecenglish.com/en/schools/canada/" target="_blank" rel="noopener" class="result-school-link">EC English Canada（バンクーバー・トロント） →</a>
+      <a href="https://www.kaplaninternational.com/language-courses/english" target="_blank" rel="noopener" class="result-school-link">Kaplan International Canada →</a>
+    </div>`
+  },
+  nz: {
+    key: 'nz', flag: '🇳🇿', name: 'ニュージーランド',
+    reason: '英語圏5カ国で最もコスパが高い穴場。治安も世界トップクラス。日本人が少なく英語力が伸びやすい環境で、スキーも楽しめる唯一の英語圏の国です（南半球）。',
+    shortReason: '英語圏最安水準・自然・スキー好きに最適',
+    safety: '★★★★★', value: '★★★★★', english: '★★★★☆', cost: '¥57〜93万',
+    guide: 'articles/newzealand.html',
+    schools: `<div class="result-school-list">
+      <a href="https://nzlc.ac.nz/enrolment-process/" target="_blank" rel="noopener" class="result-school-link">NZLC（オークランド・ウェリントン） — 日本語スタッフ在籍 →</a>
+      <a href="https://www.excel.ac.nz/enrol/" target="_blank" rel="noopener" class="result-school-link">Excel Education（オークランド） — NZ最安水準 →</a>
+    </div>`
+  },
+  australia: {
+    key: 'australia', flag: '🇦🇺', name: 'オーストラリア',
+    reason: '温暖な気候と多様な都市が魅力。シドニー・メルボルン・ゴールドコーストで雰囲気がまるで違います。ワーキングホリデー制度が充実しており、長期滞在にも最適です。',
+    shortReason: '温暖・ワーホリ充実・都市の多様性が魅力',
+    safety: '★★★★☆', value: '★★★☆☆', english: '★★★★☆', cost: '¥83〜125万',
+    guide: 'articles/australia.html',
+    schools: `<div class="result-school-list">
+      <a href="https://www.kaplaninternational.com/language-courses/english" target="_blank" rel="noopener" class="result-school-link">Kaplan（シドニー・メルボルン・GC） →</a>
+      <a href="https://www.lsi.edu/en/english/australia/" target="_blank" rel="noopener" class="result-school-link">LSI Australia（シドニー・ブリスベン・パース） →</a>
+    </div>`
+  },
+  uk: {
+    key: 'uk', flag: '🇬🇧', name: 'イギリス',
+    reason: '英語発祥の地で本場ブリティッシュ英語を習得。歴史的建造物・世界最高峰の博物館（無料）・週末のヨーロッパ旅行と、他の国にはない体験が詰まっています。',
+    shortReason: '本場英語・歴史・文化・ヨーロッパ旅行の拠点',
+    safety: '★★★☆☆', value: '★★☆☆☆', english: '★★★★★', cost: '¥100〜160万',
+    guide: 'articles/uk.html',
+    schools: `<div class="result-school-list">
+      <a href="https://www.bls.org.uk/apply-online/" target="_blank" rel="noopener" class="result-school-link">BLS（ロンドン・ブライトン） — オンライン申込あり →</a>
+      <a href="https://ecenglish.com/en/schools/uk/" target="_blank" rel="noopener" class="result-school-link">EC English UK（ロンドン・ブライトン・マンチェスター） →</a>
+    </div>`
+  },
+  ireland: {
+    key: 'ireland', flag: '🇮🇪', name: 'アイルランド',
+    reason: '英語圏でEU内という世界唯一の存在。イギリスより10〜20%物価が安く、激安LCCでパリ・バルセロナへ片道¥2,000〜から飛べます。英語を学びながらヨーロッパも制覇できる最高の選択肢です。',
+    shortReason: '英語圏×EU内×イギリスより安い唯一の国',
+    safety: '★★★★☆', value: '★★★★☆', english: '★★★★☆', cost: '¥75〜117万',
+    guide: 'articles/ireland.html',
+    schools: `<div class="result-school-list">
+      <a href="https://www.ilac.ie/" target="_blank" rel="noopener" class="result-school-link">ILAC Dublin（ダブリン） — 日本人留学生に人気 →</a>
+      <a href="https://www.gci.ie/" target="_blank" rel="noopener" class="result-school-link">GCI（ゴールウェイ） — ダブリンより20%安い →</a>
+    </div>`
+  }
+};
 
 function resetQuiz() {
   Object.keys(answers).forEach(k => delete answers[k]);
@@ -683,6 +858,7 @@ function resetQuiz() {
     s.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
   });
   document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('resultContent').innerHTML = '';
   document.querySelector('.quiz-step[data-step="1"]').classList.add('active');
 }
 
