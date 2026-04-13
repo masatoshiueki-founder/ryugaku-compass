@@ -1,0 +1,225 @@
+/* ===== 記事共通スタイル（article.css） ===== */
+
+/* ヘッダーは style.css を継承 */
+
+/* 記事ヘッダー */
+.article-hero {
+  background: #0F0F0F;
+  padding: 64px 0 56px;
+  position: relative;
+  overflow: hidden;
+}
+.article-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(255,72,40,0.08) 0%, transparent 60%);
+}
+.article-hero .container { position: relative; z-index: 1; }
+.breadcrumb {
+  font-size: 0.8rem; color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 6px;
+}
+.breadcrumb a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb span { color: rgba(255,255,255,0.25); }
+.article-label {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; color: #FF7055;
+  text-transform: uppercase; margin-bottom: 14px;
+  display: block;
+}
+.article-title {
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  font-weight: 900; color: #fff;
+  line-height: 1.25; margin-bottom: 16px;
+}
+.article-meta {
+  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+
+/* 記事本文 */
+.article-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 28px 96px;
+}
+
+/* ナビゲーション */
+.article-nav {
+  display: flex; justify-content: space-between;
+  margin-bottom: 48px;
+}
+.back-link {
+  font-size: 0.88rem; font-weight: 600;
+  color: #FF4828;
+  transition: opacity 0.2s;
+}
+.back-link:hover { opacity: 0.7; }
+
+/* 見出し */
+.article-body h2 {
+  font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+  font-weight: 900;
+  margin: 56px 0 18px;
+  padding-left: 16px;
+  border-left: 4px solid #FF4828;
+  line-height: 1.4;
+}
+.article-body h3 {
+  font-size: 1.1rem; font-weight: 800;
+  margin: 36px 0 12px; color: #1A1A1A;
+}
+
+/* 本文 */
+.article-body p {
+  margin-bottom: 18px; color: #3A3A3A;
+  line-height: 1.95; font-size: 0.97rem;
+}
+.article-body ul, .article-body ol {
+  margin: 0 0 20px 22px;
+}
+.article-body li {
+  margin-bottom: 10px; color: #3A3A3A;
+  line-height: 1.8; font-size: 0.95rem;
+}
+
+/* ハイライトボックス */
+.info-box {
+  background: #F5F1EB; border-radius: 14px;
+  padding: 26px 30px; margin: 32px 0;
+  border-left: 4px solid #FF4828;
+}
+.info-box h4 {
+  font-weight: 800; margin-bottom: 12px;
+  font-size: 1rem;
+}
+.info-box ul { margin: 0 0 0 18px; }
+.info-box li { margin-bottom: 6px; font-size: 0.92rem; }
+
+/* 都市・場所グリッド */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px; margin: 24px 0 32px;
+}
+.city-card {
+  background: #fff; border: 1px solid #E8E5E0;
+  border-radius: 14px; padding: 22px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.city-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  border-color: #FFCDC6;
+}
+.city-card h4 { font-weight: 800; margin-bottom: 8px; font-size: 0.98rem; }
+.city-card p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.7; }
+
+/* 費用テーブル */
+.cost-box {
+  background: #fff; border: 1px solid #E8E5E0;
+  border-radius: 14px; overflow: hidden;
+  margin: 20px 0 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.cost-box table { width: 100%; border-collapse: collapse; }
+.cost-box th {
+  background: #0F0F0F; color: #fff;
+  padding: 12px 18px; text-align: left;
+  font-size: 0.85rem; font-weight: 700;
+}
+.cost-box td {
+  padding: 12px 18px; border-bottom: 1px solid #F0EDE8;
+  font-size: 0.9rem; color: #333;
+}
+.cost-box tr:last-child td { border-bottom: none; }
+.cost-box tr:hover td { background: #FAFAF8; }
+.cost-box .highlight-row td { font-weight: 700; color: #FF4828; }
+
+/* アフィリエイトCTA */
+.cta-box {
+  background: #0F0F0F; border-radius: 16px;
+  padding: 32px 36px; margin: 48px 0;
+  color: #fff;
+}
+.cta-box h4 {
+  font-size: 1.2rem; font-weight: 900;
+  margin-bottom: 10px; color: #fff;
+}
+.cta-box p {
+  font-size: 0.9rem; color: rgba(255,255,255,0.65);
+  margin-bottom: 20px; line-height: 1.8;
+}
+.cta-box a {
+  display: inline-flex; align-items: center;
+  background: #FF4828; color: #fff;
+  padding: 12px 26px; border-radius: 8px;
+  font-weight: 700; font-size: 0.92rem;
+  transition: background 0.2s;
+}
+.cta-box a:hover { background: #e03820; }
+.cta-box-light {
+  background: #F5F1EB; border-radius: 16px;
+  padding: 28px 32px; margin: 40px 0;
+}
+.cta-box-light h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; }
+.cta-box-light p { font-size: 0.9rem; color: #555; margin-bottom: 16px; line-height: 1.8; }
+.cta-box-light a {
+  display: inline-flex;
+  background: #FF4828; color: #fff;
+  padding: 11px 24px; border-radius: 8px;
+  font-weight: 700; font-size: 0.88rem;
+}
+
+/* 比較チェックリスト */
+.check-list { list-style: none; margin: 0 0 24px; padding: 0; }
+.check-list li {
+  padding: 10px 0 10px 30px; position: relative;
+  border-bottom: 1px solid #F0EDE8; margin: 0;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before {
+  content: '✓'; position: absolute; left: 0;
+  color: #FF4828; font-weight: 900;
+}
+
+/* 注意書き */
+.note {
+  font-size: 0.82rem; color: #888;
+  background: #F8F5F0; border-radius: 8px;
+  padding: 12px 16px; margin: 16px 0;
+}
+
+/* 記事フッターナビ */
+.article-footer-nav {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  margin-top: 64px; padding-top: 40px;
+  border-top: 1px solid #E8E5E0;
+}
+.country-nav-card {
+  flex: 1; min-width: 150px;
+  background: #fff; border: 1px solid #E8E5E0;
+  border-radius: 12px; padding: 18px 20px;
+  transition: border-color 0.2s, transform 0.2s;
+  display: block;
+}
+.country-nav-card:hover {
+  border-color: #FFCDC6;
+  transform: translateY(-2px);
+}
+.country-nav-card .cnc-flag { font-size: 1.8rem; margin-bottom: 6px; display: block; }
+.country-nav-card .cnc-name { font-weight: 700; font-size: 0.9rem; display: block; }
+.country-nav-card .cnc-cost { font-size: 0.78rem; color: #888; display: block; margin-top: 2px; }
+
+/* ヘッダーのリンク修正（記事ページ用） */
+.header .logo { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.2rem; }
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  .article-hero { padding: 48px 0 40px; }
+  .article-body { padding: 40px 20px 64px; }
+  .city-grid { grid-template-columns: 1fr; }
+  .cta-box { padding: 24px 20px; }
+  .article-footer-nav { flex-direction: column; }
+}

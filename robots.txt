@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ryugaku-compass.netlify.app/sitemap.xml
