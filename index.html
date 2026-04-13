@@ -3,222 +3,739 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="留学コンパス｜日本人高校生・大学生のための留学情報メディア。カナダ・オーストラリア・ニュージーランド・英国・アイルランドへの留学費用・手順・体験談を徹底解説。">
-  <title>留学コンパス｜高校生・大学生のための留学情報メディア</title>
+  <meta name="description" content="留学コンパス｜エージェントに頼まなくても留学できる。費用シミュレーター・留学先診断・親説得キット。現役高校生が作った、正直な留学情報サイト。">
+  <title>留学コンパス｜高校生のための、正直な留学ガイド</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ヘッダー -->
-  <header class="header">
-    <div class="container">
-      <div class="header-inner">
-        <a href="/" class="logo">🧭 留学コンパス</a>
-        <nav class="nav">
-          <a href="#countries">留学先を選ぶ</a>
-          <a href="#guides">準備ガイド</a>
-          <a href="#cost">費用を知る</a>
-          <a href="#about">このサイトについて</a>
-        </nav>
+<!-- ヘッダー -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark">🧭</span>
+        <span class="logo-text">留学コンパス</span>
+      </a>
+      <nav class="nav">
+        <a href="#quiz">留学先診断</a>
+        <a href="#simulator">費用計算</a>
+        <a href="#countries">国別ガイド</a>
+        <a href="#parents">親向け</a>
+      </nav>
+      <a href="#quiz" class="header-cta">診断スタート</a>
+    </div>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="hero-bg-text" aria-hidden="true">STUDY ABROAD</div>
+  <div class="container">
+    <div class="hero-badge">現役高校生が作った留学サイト</div>
+    <h1 class="hero-title">
+      留学エージェントに<br>
+      頼む前に、<br>
+      <span class="hero-accent">ここを読んで。</span>
+    </h1>
+    <p class="hero-desc">
+      エージェントが受け取る手数料は、語学学校・住居費の<strong>15〜30%</strong>。<br>
+      3ヶ月留学なら最大<strong>30万円</strong>が手数料で消えます。<br>
+      直接申し込めば節約できます。このサイトで全部わかります。
+    </p>
+    <div class="hero-ctas">
+      <a href="#quiz" class="btn-primary">留学先を診断する →</a>
+      <a href="#simulator" class="btn-secondary">費用を計算する</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">30万円</span>
+        <span class="stat-label">節約できる目安（3ヶ月）</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">5カ国</span>
+        <span class="stat-label">徹底比較済み</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">無料</span>
+        <span class="stat-label">全コンテンツ無料</span>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- ヒーロー -->
-  <section class="hero">
-    <div class="container">
-      <p class="hero-label">高校生・大学生のための</p>
-      <h1 class="hero-title">留学の第一歩を、<br>一緒に踏み出そう。</h1>
-      <p class="hero-desc">
-        費用・手順・現地の生活まで、<br>
-        日本人高校生目線で正直にお伝えします。
-      </p>
-      <a href="#countries" class="btn-primary">留学先を探す →</a>
-    </div>
-  </section>
-
-  <!-- 留学先 -->
-  <section class="section" id="countries">
-    <div class="container">
-      <h2 class="section-title">人気の留学先</h2>
-      <p class="section-sub">高校生・大学生に人気の5カ国を徹底比較</p>
-      <div class="country-grid">
-        <a href="articles/canada.html" class="country-card">
-          <div class="country-flag">🇨🇦</div>
-          <h3>カナダ</h3>
-          <p>英語圏で最も安全・多文化。バンクーバー・トロントが人気。</p>
-          <span class="tag">安全</span><span class="tag">多文化</span>
-        </a>
-        <a href="articles/australia.html" class="country-card">
-          <div class="country-flag">🇦🇺</div>
-          <h3>オーストラリア</h3>
-          <p>気候が良く、ワーホリ制度も充実。短期から長期まで対応。</p>
-          <span class="tag">気候良好</span><span class="tag">ワーホリ</span>
-        </a>
-        <a href="articles/newzealand.html" class="country-card">
-          <div class="country-flag">🇳🇿</div>
-          <h3>ニュージーランド</h3>
-          <p>自然豊か・物価比較的安い・治安が良い。穴場の留学先。</p>
-          <span class="tag">自然</span><span class="tag">安め</span>
-        </a>
-        <a href="articles/uk.html" class="country-card">
-          <div class="country-flag">🇬🇧</div>
-          <h3>イギリス</h3>
-          <p>本場の英語・歴史・文化。ヨーロッパ旅行も楽しめる。</p>
-          <span class="tag">本場英語</span><span class="tag">歴史・文化</span>
-        </a>
-        <a href="articles/ireland.html" class="country-card">
-          <div class="country-flag">🇮🇪</div>
-          <h3>アイルランド</h3>
-          <p>英語圏でヨーロッパに位置。英国より物価が安い穴場。</p>
-          <span class="tag">穴場</span><span class="tag">EU</span>
-        </a>
+<!-- 問題提起 -->
+<section class="problem-section">
+  <div class="container">
+    <h2 class="problem-title">誰も教えてくれなかった、3つの真実</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <h3>エージェントは中立じゃない</h3>
+        <p>留学エージェントは、あなたを特定の学校に紹介するほど手数料が増えます。あなたにとって最善の提案が、エージェントにとって最高の提案とは限りません。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔍</div>
+        <h3>直接申し込みは難しくない</h3>
+        <p>語学学校のほとんどは日本語サポートのあるウェブサイトから直接申込できます。ビザも手順通りにやれば高校生でも申請できます。</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">👨‍👩‍👧</div>
+        <h3>親の反対が一番の壁</h3>
+        <p>留学を諦める理由No.1は「親が反対」。費用・安全性・大学受験への影響、親が不安に思うことへの答えをまとめました。</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ガイド -->
-  <section class="section bg-light" id="guides">
-    <div class="container">
-      <h2 class="section-title">準備ガイド</h2>
-      <p class="section-sub">留学を決めてから出発までの流れ</p>
-      <div class="guide-list">
-        <a href="articles/steps.html" class="guide-card">
-          <span class="guide-num">01</span>
-          <div>
-            <h3>留学の全体ステップ</h3>
-            <p>目標設定から帰国後まで、全体の流れを把握しよう</p>
-          </div>
-        </a>
-        <a href="articles/visa.html" class="guide-card">
-          <span class="guide-num">02</span>
-          <div>
-            <h3>ビザ・手続きガイド</h3>
-            <p>国ごとのビザ要件と申請手順をわかりやすく解説</p>
-          </div>
-        </a>
-        <a href="articles/cost.html" class="guide-card">
-          <span class="guide-num">03</span>
-          <div>
-            <h3>費用の全体像</h3>
-            <p>語学学校・住居・生活費・航空券の目安を国別に比較</p>
-          </div>
-        </a>
-        <a href="articles/scholarship.html" class="guide-card">
-          <span class="guide-num">04</span>
-          <div>
-            <h3>奨学金・助成金</h3>
-            <p>高校生が使える奨学金制度をまとめました</p>
-          </div>
-        </a>
-        <a href="articles/checklist.html" class="guide-card">
-          <span class="guide-num">05</span>
-          <div>
-            <h3>持ち物・出発前チェックリスト</h3>
-            <p>忘れると困るものリスト。印刷して使えます</p>
-          </div>
-        </a>
+<!-- 留学先診断 -->
+<section class="section quiz-section" id="quiz">
+  <div class="container">
+    <div class="section-label">TOOL 01</div>
+    <h2 class="section-title">あなたに合う留学先を診断する</h2>
+    <p class="section-sub">5つの質問で、あなたに最適な留学先を見つけます</p>
+
+    <div class="quiz-wrap" id="quizWrap">
+      <!-- Q1 -->
+      <div class="quiz-step active" data-step="1">
+        <div class="quiz-progress">
+          <div class="quiz-bar" style="width:20%"></div>
+        </div>
+        <p class="quiz-q">Q1. 留学の予算（総額・3ヶ月の場合）は？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" data-q="1" data-v="low" onclick="quizAnswer(1,'low')">
+            <span class="q-icon">🟢</span>
+            <span class="q-label">できるだけ安く（〜80万円）</span>
+          </button>
+          <button class="quiz-btn" data-q="1" data-v="mid" onclick="quizAnswer(1,'mid')">
+            <span class="q-icon">🟡</span>
+            <span class="q-label">普通くらい（80〜120万円）</span>
+          </button>
+          <button class="quiz-btn" data-q="1" data-v="high" onclick="quizAnswer(1,'high')">
+            <span class="q-icon">🔴</span>
+            <span class="q-label">多少高くても充実感重視（120万円〜）</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-progress">
+          <div class="quiz-bar" style="width:40%"></div>
+        </div>
+        <p class="quiz-q">Q2. 好きな気候・環境は？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(2,'warm')">
+            <span class="q-icon">☀️</span>
+            <span class="q-label">暖かい・海がある</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(2,'nature')">
+            <span class="q-icon">🌿</span>
+            <span class="q-label">自然・山・アウトドア</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(2,'city')">
+            <span class="q-icon">🏙️</span>
+            <span class="q-label">都市・文化・歴史</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(2,'any')">
+            <span class="q-icon">🌍</span>
+            <span class="q-label">どこでもOK</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-progress">
+          <div class="quiz-bar" style="width:60%"></div>
+        </div>
+        <p class="quiz-q">Q3. 今の英語レベルは？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(3,'zero')">
+            <span class="q-icon">📚</span>
+            <span class="q-label">ほぼゼロ（英語は苦手）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(3,'basic')">
+            <span class="q-icon">💬</span>
+            <span class="q-label">中学レベル（簡単な会話はできる）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(3,'mid')">
+            <span class="q-icon">🗣️</span>
+            <span class="q-label">高校レベル（ある程度話せる）</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-progress">
+          <div class="quiz-bar" style="width:80%"></div>
+        </div>
+        <p class="quiz-q">Q4. 一番大切にしたいことは？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(4,'safe')">
+            <span class="q-icon">🛡️</span>
+            <span class="q-label">とにかく安全・安心</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(4,'europe')">
+            <span class="q-icon">✈️</span>
+            <span class="q-label">ヨーロッパ旅行も楽しみたい</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(4,'value')">
+            <span class="q-icon">💰</span>
+            <span class="q-label">コスパ最優先</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(4,'english')">
+            <span class="q-icon">🎯</span>
+            <span class="q-label">本格的な英語環境</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-step" data-step="5">
+        <div class="quiz-progress">
+          <div class="quiz-bar" style="width:100%"></div>
+        </div>
+        <p class="quiz-q">Q5. 留学の期間は？</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="quizAnswer(5,'short')">
+            <span class="q-icon">📅</span>
+            <span class="q-label">2〜4週間（短期）</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(5,'mid')">
+            <span class="q-icon">🗓️</span>
+            <span class="q-label">1〜3ヶ月</span>
+          </button>
+          <button class="quiz-btn" onclick="quizAnswer(5,'long')">
+            <span class="q-icon">🌐</span>
+            <span class="q-label">半年以上</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 結果 -->
+      <div class="quiz-result" id="quizResult" style="display:none">
+        <div class="result-badge">診断完了</div>
+        <h3 class="result-country" id="resultCountry"></h3>
+        <p class="result-reason" id="resultReason"></p>
+        <div class="result-details" id="resultDetails"></div>
+        <div class="result-actions">
+          <a href="#simulator" class="btn-primary">この国の費用を計算する →</a>
+          <button class="btn-outline" onclick="resetQuiz()">もう一度診断する</button>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 費用 -->
-  <section class="section" id="cost">
-    <div class="container">
-      <h2 class="section-title">国別 費用の目安</h2>
-      <p class="section-sub">語学学校（3ヶ月）の総費用比較</p>
-      <div class="cost-table-wrap">
-        <table class="cost-table">
-          <thead>
-            <tr>
-              <th>国</th>
-              <th>語学学校</th>
-              <th>住居費</th>
-              <th>生活費</th>
-              <th>合計目安</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>🇨🇦 カナダ</td>
-              <td>¥30〜50万</td>
-              <td>¥25〜40万</td>
-              <td>¥15〜20万</td>
-              <td class="total">¥70〜110万</td>
-            </tr>
-            <tr>
-              <td>🇦🇺 オーストラリア</td>
-              <td>¥35〜55万</td>
-              <td>¥30〜45万</td>
-              <td>¥18〜25万</td>
-              <td class="total">¥83〜125万</td>
-            </tr>
-            <tr>
-              <td>🇳🇿 ニュージーランド</td>
-              <td>¥25〜40万</td>
-              <td>¥20〜35万</td>
-              <td>¥12〜18万</td>
-              <td class="total">¥57〜93万</td>
-            </tr>
-            <tr>
-              <td>🇬🇧 イギリス</td>
-              <td>¥40〜70万</td>
-              <td>¥40〜60万</td>
-              <td>¥20〜30万</td>
-              <td class="total">¥100〜160万</td>
-            </tr>
-            <tr>
-              <td>🇮🇪 アイルランド</td>
-              <td>¥30〜50万</td>
-              <td>¥30〜45万</td>
-              <td>¥15〜22万</td>
-              <td class="total">¥75〜117万</td>
-            </tr>
-          </tbody>
-        </table>
+<!-- 費用シミュレーター -->
+<section class="section sim-section" id="simulator">
+  <div class="container">
+    <div class="section-label">TOOL 02</div>
+    <h2 class="section-title">留学費用シミュレーター</h2>
+    <p class="section-sub">エージェント経由 vs 直接申込の差額も表示します</p>
+
+    <div class="sim-wrap">
+      <div class="sim-inputs">
+        <div class="sim-group">
+          <label class="sim-label">行き先</label>
+          <div class="sim-select-wrap">
+            <select class="sim-select" id="simCountry" onchange="calcCost()">
+              <option value="canada">🇨🇦 カナダ</option>
+              <option value="australia">🇦🇺 オーストラリア</option>
+              <option value="nz">🇳🇿 ニュージーランド</option>
+              <option value="uk">🇬🇧 イギリス</option>
+              <option value="ireland">🇮🇪 アイルランド</option>
+            </select>
+          </div>
+        </div>
+        <div class="sim-group">
+          <label class="sim-label">期間</label>
+          <div class="sim-select-wrap">
+            <select class="sim-select" id="simMonths" onchange="calcCost()">
+              <option value="1">1ヶ月</option>
+              <option value="2">2ヶ月</option>
+              <option value="3" selected>3ヶ月</option>
+              <option value="6">6ヶ月</option>
+            </select>
+          </div>
+        </div>
+        <div class="sim-group">
+          <label class="sim-label">住居タイプ</label>
+          <div class="sim-select-wrap">
+            <select class="sim-select" id="simHousing" onchange="calcCost()">
+              <option value="homestay">ホームステイ</option>
+              <option value="dorm">学生寮</option>
+              <option value="share">シェアハウス（格安）</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <p class="cost-note">※ 航空券（¥10〜20万）・保険料・ビザ費用は含まず。為替レートにより変動します。</p>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>無料チェックリストをダウンロード</h2>
-      <p>「留学準備 完全チェックリスト」を無料でお届けします。<br>出発前に確認すべき50項目をまとめました。</p>
-      <form class="cta-form">
-        <input type="email" placeholder="メールアドレスを入力" required>
-        <button type="submit" class="btn-primary">無料でもらう →</button>
-      </form>
-    </div>
-  </section>
+      <div class="sim-results">
+        <div class="sim-card direct">
+          <div class="sim-card-label">直接申込の場合</div>
+          <div class="sim-total" id="simDirectTotal">¥—</div>
+          <div class="sim-breakdown" id="simDirectBreak"></div>
+        </div>
+        <div class="sim-vs">
+          <div class="sim-save-badge">
+            <span class="sim-save-label">節約できる金額</span>
+            <span class="sim-save-amt" id="simSave">—</span>
+          </div>
+        </div>
+        <div class="sim-card agent">
+          <div class="sim-card-label">エージェント経由の場合</div>
+          <div class="sim-total" id="simAgentTotal">¥—</div>
+          <div class="sim-breakdown" id="simAgentBreak"></div>
+        </div>
+      </div>
 
-  <!-- About -->
-  <section class="section bg-light" id="about">
-    <div class="container about-wrap">
+      <p class="sim-note">※ 航空券・ビザ費用・保険料は別途。あくまで目安です。為替レート（1USD≈150円、1AUD≈95円等）で変動します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 国別ガイド -->
+<section class="section" id="countries">
+  <div class="container">
+    <div class="section-label">GUIDE</div>
+    <h2 class="section-title">国別 留学ガイド</h2>
+    <p class="section-sub">費用・ビザ・語学学校選び・生活まで徹底解説</p>
+    <div class="country-grid">
+      <a href="articles/canada.html" class="country-card">
+        <div class="country-top">
+          <span class="country-flag">🇨🇦</span>
+          <div class="country-tags">
+            <span class="tag tag-green">安全</span>
+            <span class="tag tag-blue">多文化</span>
+          </div>
+        </div>
+        <h3 class="country-name">カナダ</h3>
+        <p class="country-desc">英語圏で最も安全・多文化共生。バンクーバー・トロントが人気。高校生に最もおすすめの国。</p>
+        <div class="country-cost">3ヶ月の目安 <strong>¥70〜110万</strong></div>
+        <span class="country-link">詳しく見る →</span>
+      </a>
+      <a href="articles/australia.html" class="country-card">
+        <div class="country-top">
+          <span class="country-flag">🇦🇺</span>
+          <div class="country-tags">
+            <span class="tag tag-orange">温暖</span>
+            <span class="tag tag-blue">ワーホリ</span>
+          </div>
+        </div>
+        <h3 class="country-name">オーストラリア</h3>
+        <p class="country-desc">気候が良く、ワーキングホリデー制度も充実。都市ごとに雰囲気が全然違う。</p>
+        <div class="country-cost">3ヶ月の目安 <strong>¥83〜125万</strong></div>
+        <span class="country-link">詳しく見る →</span>
+      </a>
+      <a href="articles/newzealand.html" class="country-card">
+        <div class="country-top">
+          <span class="country-flag">🇳🇿</span>
+          <div class="country-tags">
+            <span class="tag tag-green">自然</span>
+            <span class="tag tag-green">格安</span>
+          </div>
+        </div>
+        <h3 class="country-name">ニュージーランド</h3>
+        <p class="country-desc">英語圏で最もコスパが高い穴場。自然が豊かで治安が良い。スキーも有名。</p>
+        <div class="country-cost">3ヶ月の目安 <strong>¥57〜93万</strong></div>
+        <span class="country-link">詳しく見る →</span>
+      </a>
+      <a href="articles/uk.html" class="country-card">
+        <div class="country-top">
+          <span class="country-flag">🇬🇧</span>
+          <div class="country-tags">
+            <span class="tag tag-purple">本場英語</span>
+            <span class="tag tag-purple">歴史</span>
+          </div>
+        </div>
+        <h3 class="country-name">イギリス</h3>
+        <p class="country-desc">英語発祥の地でリアルなブリティッシュ英語を習得。ヨーロッパ旅行の拠点にも。</p>
+        <div class="country-cost">3ヶ月の目安 <strong>¥100〜160万</strong></div>
+        <span class="country-link">詳しく見る →</span>
+      </a>
+      <a href="articles/ireland.html" class="country-card">
+        <div class="country-top">
+          <span class="country-flag">🇮🇪</span>
+          <div class="country-tags">
+            <span class="tag tag-green">穴場</span>
+            <span class="tag tag-blue">EU</span>
+          </div>
+        </div>
+        <h3 class="country-name">アイルランド</h3>
+        <p class="country-desc">英語圏でEU内。英国より物価が安く、ヨーロッパ旅行も楽しめる隠れた人気国。</p>
+        <div class="country-cost">3ヶ月の目安 <strong>¥75〜117万</strong></div>
+        <span class="country-link">詳しく見る →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- タイムライン -->
+<section class="section timeline-section">
+  <div class="container">
+    <div class="section-label">TIMELINE</div>
+    <h2 class="section-title">高校生の留学スケジュール</h2>
+    <p class="section-sub">「いつ、何をすれば間に合うか」を逆算する</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-time">出発の6〜12ヶ月前</div>
+          <div class="tl-title">目標・期間・国を決める</div>
+          <div class="tl-desc">このサイトの診断ツールで国を絞り込み、予算計画を立てる。親への相談もこの段階で。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-time">出発の4〜6ヶ月前</div>
+          <div class="tl-title">語学学校に直接申し込む</div>
+          <div class="tl-desc">各学校のウェブサイトから直接申込。エージェント不要。メールでのやり取りもこの時期に。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-time">出発の3〜4ヶ月前</div>
+          <div class="tl-title">ビザ申請・航空券手配</div>
+          <div class="tl-desc">学生ビザの申請（国によって不要な場合も）。航空券は早いほど安い。海外旅行保険も忘れずに。</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-time">出発の1〜2ヶ月前</div>
+          <div class="tl-title">住居・生活準備</div>
+          <div class="tl-desc">ホームステイのマッチング確認、海外対応SIM手配、銀行・クレジットカード準備。</div>
+        </div>
+      </div>
+      <div class="tl-item tl-last">
+        <div class="tl-dot tl-dot-accent"></div>
+        <div class="tl-content">
+          <div class="tl-time">出発！</div>
+          <div class="tl-title">留学スタート</div>
+          <div class="tl-desc">帰国後の大学受験・就活でも留学経験は強みになります。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 親向けセクション -->
+<section class="section parents-section" id="parents">
+  <div class="container">
+    <div class="parents-inner">
+      <div class="parents-header">
+        <div class="section-label" style="color:#fff9">FOR PARENTS</div>
+        <h2 class="section-title" style="color:#fff">親御さんへ</h2>
+        <p style="color:rgba(255,255,255,0.75)">子どもの留学を検討している保護者の方へ、よくある不安にお答えします</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">「お金がかかりすぎる」</summary>
+          <div class="faq-a">
+            <p>3ヶ月の語学留学は、エージェントを使わない直接申込なら<strong>70〜120万円</strong>が目安です。エージェント経由では同じプログラムで20〜30万円高くなります。また、高校生が使える給付型奨学金（返済不要）も複数あります。</p>
+            <ul>
+              <li>トビタテ！留学JAPAN（文部科学省）: 月額最大12万円</li>
+              <li>地方自治体の海外留学助成金（都道府県別）</li>
+              <li>学校独自の語学学校奨学金</li>
+            </ul>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">「危なくないか心配」</summary>
+          <div class="faq-a">
+            <p>カナダ・ニュージーランド・アイルランドは、世界治安ランキングで常に上位。日本と同レベルの安全性があります。ホームステイを選べば、現地の家族と生活するため一人での外出リスクも最小限です。</p>
+            <p>また語学学校には日本語スタッフが常駐しているところも多く、緊急時のサポート体制が整っています。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">「大学受験に影響しないか」</summary>
+          <div class="faq-a">
+            <p>むしろプラスになる場合が多いです。英検・TOEFL・IELTSのスコアが上がり、英語の大学受験で有利になります。また「留学経験」は総合型選抜（AO入試）・推薦入試で評価される要素です。</p>
+            <p>高校2年の夏〜冬休みや、受験後に行くケースが多いです。</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">「英語ができないのに大丈夫か」</summary>
+          <div class="faq-a">
+            <p>語学学校は「英語を学ぶための場所」なので、英語ゼロでも入学できます。世界中から英語を学びに来た生徒が集まるため、最初から英語漬けの環境に入れます。</p>
+            <p>むしろ英語がゼロの段階で行った方が、帰国後の伸び幅が大きいという研究結果もあります。</p>
+          </div>
+        </details>
+      </div>
+      <div class="parents-cta">
+        <p>もっと詳しく知りたい保護者の方は、親向けの詳細ガイドをご覧ください</p>
+        <a href="articles/parents-guide.html" class="btn-white">保護者向けガイドを読む →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-icon">✍️</div>
       <h2 class="section-title">このサイトについて</h2>
-      <p>
-        留学コンパスは、「留学したいけど何から始めればいいかわからない」という<br>
-        日本の高校生・大学生のために作った情報メディアです。<br><br>
-        運営者自身も現在、留学を真剣に検討している高校生です。<br>
-        自分が調べた情報を、同じ立場の人と共有したくてこのサイトを作りました。<br><br>
-        広告・アフィリエイトリンクを含む場合がありますが、<br>
-        実際に調べた正直な情報のみを掲載しています。
+      <p class="about-text">
+        留学コンパスは、<strong>現役高校生の自分が、自分のために調べた情報</strong>をまとめたサイトです。
       </p>
-    </div>
-  </section>
-
-  <!-- フッター -->
-  <footer class="footer">
-    <div class="container">
-      <p class="footer-logo">🧭 留学コンパス</p>
-      <p>© 2025 留学コンパス. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">プライバシーポリシー</a>
-        <a href="#">お問い合わせ</a>
+      <p class="about-text">
+        留学を検討して情報を集め始めたとき、気づきました。<br>
+        「情報を出しているサイトのほとんどが、エージェントか、エージェントと提携している」と。
+      </p>
+      <p class="about-text">
+        彼らの情報が嘘というわけではありません。ただ、エージェントを使った方が都合がいい立場から書かれています。
+        同じ高校生の立場から、<strong>手数料なしで正直に</strong>まとめようと思ってこのサイトを作りました。
+      </p>
+      <div class="about-tags">
+        <span class="about-tag">現役高校生運営</span>
+        <span class="about-tag">広告あり（明記します）</span>
+        <span class="about-tag">情報は随時更新</span>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-logo">🧭 留学コンパス</p>
+        <p class="footer-tagline">高校生のための、正直な留学ガイド</p>
+      </div>
+      <div class="footer-links-grid">
+        <div>
+          <p class="footer-col-title">ツール</p>
+          <a href="#quiz">留学先診断</a>
+          <a href="#simulator">費用シミュレーター</a>
+        </div>
+        <div>
+          <p class="footer-col-title">国別ガイド</p>
+          <a href="articles/canada.html">カナダ</a>
+          <a href="articles/australia.html">オーストラリア</a>
+          <a href="articles/newzealand.html">ニュージーランド</a>
+          <a href="articles/uk.html">イギリス</a>
+          <a href="articles/ireland.html">アイルランド</a>
+        </div>
+        <div>
+          <p class="footer-col-title">その他</p>
+          <a href="#parents">保護者の方へ</a>
+          <a href="#about">このサイトについて</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 留学コンパス. 掲載情報は参考情報です。最新情報は各語学学校・大使館でご確認ください。</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== 留学先診断 =====
+const answers = {};
+
+function quizAnswer(q, v) {
+  answers[q] = v;
+  const current = document.querySelector(`.quiz-step[data-step="${q}"]`);
+  const next = document.querySelector(`.quiz-step[data-step="${q + 1}"]`);
+
+  // ハイライト選択
+  current.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+
+  setTimeout(() => {
+    if (next) {
+      current.classList.remove('active');
+      next.classList.add('active');
+    } else {
+      current.classList.remove('active');
+      showResult();
+    }
+  }, 350);
+}
+
+function showResult() {
+  const result = calcDestination();
+  document.getElementById('resultCountry').textContent = result.country;
+  document.getElementById('resultReason').textContent = result.reason;
+  document.getElementById('resultDetails').innerHTML = result.details;
+
+  // シミュレーターの国も連動
+  const simMap = {
+    'カナダ': 'canada',
+    'ニュージーランド': 'nz',
+    'オーストラリア': 'australia',
+    'イギリス': 'uk',
+    'アイルランド': 'ireland'
+  };
+  const simCountryEl = document.getElementById('simCountry');
+  if (simCountryEl && simMap[result.key]) {
+    simCountryEl.value = simMap[result.key];
+    calcCost();
+  }
+
+  document.getElementById('quizResult').style.display = 'block';
+}
+
+function calcDestination() {
+  const budget = answers[1];
+  const climate = answers[2];
+  const english = answers[3];
+  const priority = answers[4];
+  const duration = answers[5];
+
+  // スコアリング
+  let scores = { canada: 0, nz: 0, australia: 0, uk: 0, ireland: 0 };
+
+  if (budget === 'low') { scores.nz += 3; scores.canada += 1; }
+  if (budget === 'mid') { scores.canada += 2; scores.ireland += 2; scores.australia += 1; }
+  if (budget === 'high') { scores.uk += 3; scores.australia += 2; }
+
+  if (climate === 'warm') { scores.australia += 3; scores.nz += 1; }
+  if (climate === 'nature') { scores.nz += 3; scores.canada += 2; }
+  if (climate === 'city') { scores.uk += 3; scores.ireland += 2; scores.canada += 1; }
+  if (climate === 'any') { scores.canada += 1; scores.nz += 1; scores.ireland += 1; }
+
+  if (priority === 'safe') { scores.canada += 3; scores.nz += 3; }
+  if (priority === 'europe') { scores.ireland += 4; scores.uk += 3; }
+  if (priority === 'value') { scores.nz += 3; scores.canada += 2; }
+  if (priority === 'english') { scores.uk += 3; scores.canada += 2; scores.ireland += 1; }
+
+  if (duration === 'short') { scores.canada += 1; scores.nz += 1; scores.ireland += 1; }
+  if (duration === 'long') { scores.australia += 2; scores.nz += 1; }
+
+  const top = Object.entries(scores).sort((a,b) => b[1]-a[1])[0][0];
+
+  const info = {
+    canada: {
+      country: '🇨🇦 カナダ',
+      key: 'カナダ',
+      reason: 'バランスが最高。安全・多文化・コスパのすべてを兼ね備えた、高校生の留学先No.1です。',
+      details: `<div class="result-stat-grid">
+        <div class="r-stat"><strong>治安</strong>★★★★★</div>
+        <div class="r-stat"><strong>コスパ</strong>★★★★☆</div>
+        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
+        <div class="r-stat"><strong>3ヶ月目安</strong>¥70〜110万</div>
+      </div>`
+    },
+    nz: {
+      country: '🇳🇿 ニュージーランド',
+      key: 'ニュージーランド',
+      reason: '英語圏で最もコスパが高く、自然が豊か。治安も良く、初留学に最適な穴場の国です。',
+      details: `<div class="result-stat-grid">
+        <div class="r-stat"><strong>治安</strong>★★★★★</div>
+        <div class="r-stat"><strong>コスパ</strong>★★★★★</div>
+        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
+        <div class="r-stat"><strong>3ヶ月目安</strong>¥57〜93万</div>
+      </div>`
+    },
+    australia: {
+      country: '🇦🇺 オーストラリア',
+      key: 'オーストラリア',
+      reason: '温暖な気候と多様な都市。シドニー・メルボルン・ゴールドコーストで全然雰囲気が違います。',
+      details: `<div class="result-stat-grid">
+        <div class="r-stat"><strong>治安</strong>★★★★☆</div>
+        <div class="r-stat"><strong>コスパ</strong>★★★☆☆</div>
+        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
+        <div class="r-stat"><strong>3ヶ月目安</strong>¥83〜125万</div>
+      </div>`
+    },
+    uk: {
+      country: '🇬🇧 イギリス',
+      key: 'イギリス',
+      reason: '本場ブリティッシュ英語と歴史・文化。ヨーロッパ旅行の拠点にもなる充実した環境です。',
+      details: `<div class="result-stat-grid">
+        <div class="r-stat"><strong>治安</strong>★★★☆☆</div>
+        <div class="r-stat"><strong>コスパ</strong>★★☆☆☆</div>
+        <div class="r-stat"><strong>英語環境</strong>★★★★★</div>
+        <div class="r-stat"><strong>3ヶ月目安</strong>¥100〜160万</div>
+      </div>`
+    },
+    ireland: {
+      country: '🇮🇪 アイルランド',
+      key: 'アイルランド',
+      reason: '英語圏でEU内という唯一の存在。イギリスより物価が安く、ヨーロッパへのアクセスも抜群です。',
+      details: `<div class="result-stat-grid">
+        <div class="r-stat"><strong>治安</strong>★★★★☆</div>
+        <div class="r-stat"><strong>コスパ</strong>★★★★☆</div>
+        <div class="r-stat"><strong>英語環境</strong>★★★★☆</div>
+        <div class="r-stat"><strong>3ヶ月目安</strong>¥75〜117万</div>
+      </div>`
+    }
+  };
+  return info[top];
+}
+
+function resetQuiz() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.quiz-step').forEach(s => {
+    s.classList.remove('active');
+    s.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
+  });
+  document.getElementById('quizResult').style.display = 'none';
+  document.querySelector('.quiz-step[data-step="1"]').classList.add('active');
+}
+
+// ===== 費用シミュレーター =====
+const costData = {
+  canada:    { school: 140000, homestay: 100000, dorm: 85000, share: 68000, living: 60000, flight: 160000 },
+  australia: { school: 150000, homestay: 115000, dorm: 95000, share: 75000, living: 70000, flight: 120000 },
+  nz:        { school: 110000, homestay: 88000,  dorm: 72000, share: 58000, living: 50000, flight: 130000 },
+  uk:        { school: 175000, homestay: 135000, dorm: 120000, share: 95000, living: 85000, flight: 150000 },
+  ireland:   { school: 135000, homestay: 115000, dorm: 92000, share: 75000, living: 65000, flight: 180000 }
+};
+
+function fmt(n) {
+  return '¥' + Math.round(n / 10000) + '万';
+}
+
+function calcCost() {
+  const country = document.getElementById('simCountry').value;
+  const months = parseInt(document.getElementById('simMonths').value);
+  const housing = document.getElementById('simHousing').value;
+  const d = costData[country];
+
+  const schoolTotal = d.school * months;
+  const housingTotal = d[housing] * months;
+  const livingTotal = d.living * months;
+  const directTotal = schoolTotal + housingTotal + livingTotal + d.flight;
+
+  const agentFee = Math.round((schoolTotal + housingTotal) * 0.22);
+  const agentTotal = directTotal + agentFee;
+  const save = agentTotal - directTotal;
+
+  document.getElementById('simDirectTotal').textContent = fmt(directTotal);
+  document.getElementById('simDirectBreak').innerHTML = `
+    <div class="sim-row"><span>語学学校（${months}ヶ月）</span><span>${fmt(schoolTotal)}</span></div>
+    <div class="sim-row"><span>${housing === 'homestay' ? 'ホームステイ' : housing === 'dorm' ? '学生寮' : 'シェアハウス'}（${months}ヶ月）</span><span>${fmt(housingTotal)}</span></div>
+    <div class="sim-row"><span>生活費（${months}ヶ月）</span><span>${fmt(livingTotal)}</span></div>
+    <div class="sim-row"><span>航空券（往復）</span><span>${fmt(d.flight)}</span></div>
+  `;
+
+  document.getElementById('simAgentTotal').textContent = fmt(agentTotal);
+  document.getElementById('simAgentBreak').innerHTML = `
+    <div class="sim-row"><span>語学学校（${months}ヶ月）</span><span>${fmt(schoolTotal)}</span></div>
+    <div class="sim-row"><span>${housing === 'homestay' ? 'ホームステイ' : housing === 'dorm' ? '学生寮' : 'シェアハウス'}（${months}ヶ月）</span><span>${fmt(housingTotal)}</span></div>
+    <div class="sim-row"><span>生活費（${months}ヶ月）</span><span>${fmt(livingTotal)}</span></div>
+    <div class="sim-row"><span>航空券（往復）</span><span>${fmt(d.flight)}</span></div>
+    <div class="sim-row sim-row-fee"><span>エージェント手数料（約22%）</span><span>+${fmt(agentFee)}</span></div>
+  `;
+
+  document.getElementById('simSave').textContent = fmt(save) + '節約';
+}
+
+// 初期計算
+calcCost();
+</script>
 
 </body>
 </html>
