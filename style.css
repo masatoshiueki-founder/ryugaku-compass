@@ -61,6 +61,36 @@ img { max-width: 100%; }
   transition: background 0.2s;
 }
 .header-cta:hover { background: #e03820; }
+/* ハンバーガーボタン */
+.nav-toggle {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 40px; height: 40px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.nav-toggle span {
+  display: block; width: 22px; height: 2px;
+  background: #0F0F0F; border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* モバイルナビオーバーレイ */
+.nav.mobile-open {
+  display: flex !important;
+  position: fixed; top: 64px; left: 0; right: 0;
+  flex-direction: column; gap: 0;
+  background: #fff; border-bottom: 1px solid #E8E5E0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  z-index: 199; padding: 8px 0;
+}
+.nav.mobile-open a {
+  padding: 14px 28px; font-size: 1rem;
+  border-bottom: 1px solid #F0EDE8;
+  color: #0F0F0F;
+}
+.nav.mobile-open a:last-child { border-bottom: none; }
 
 /* ===== ヒーロー ===== */
 .hero {
@@ -603,7 +633,9 @@ details[open] .faq-q::after {
 }
 @media (max-width: 768px) {
   .nav { display: none; }
-  .header-cta { padding: 8px 16px; font-size: 0.82rem; }
+  .nav-toggle { display: flex; }
+  .header-cta { display: none; }
+  .header-inner { gap: 12px; }
   .hero { padding: 80px 0 64px; }
   .hero-title { font-size: 2.2rem; }
   .hero-stats { flex-wrap: wrap; gap: 24px; }

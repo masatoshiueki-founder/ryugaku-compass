@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ - 留学コンパス</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="article.css">
   <style>
@@ -33,11 +34,18 @@
   <div class="container">
     <div class="header-inner">
       <a href="/" class="logo"><span class="logo-mark">🧭</span><span class="logo-text">留学コンパス</span></a>
-      <nav class="nav">
+      <nav class="nav" id="mainNav">
+        <a href="/">ホーム</a>
         <a href="/#quiz">留学先診断</a>
         <a href="/#simulator">費用計算</a>
         <a href="/#countries">国別ガイド</a>
+        <a href="articles/direct-apply.html">直接申込</a>
+        <a href="articles/preparation.html">準備リスト</a>
+        <a href="articles/scholarship.html">奨学金</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
@@ -98,5 +106,9 @@
     </div>
   </div>
 </footer>
+<script>
+function toggleNav(){var n=document.getElementById('mainNav');n.classList.toggle('mobile-open');}
+document.addEventListener('click',function(e){var n=document.getElementById('mainNav');var b=document.getElementById('navToggle');if(n&&b&&!n.contains(e.target)&&!b.contains(e.target)){n.classList.remove('mobile-open');}});
+</script>
 </body>
 </html>

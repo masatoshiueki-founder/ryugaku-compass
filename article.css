@@ -223,3 +223,8 @@
   .cta-box { padding: 24px 20px; }
   .article-footer-nav { flex-direction: column; }
 }
+
+/* 記事ページのハンバーガー表示 */
+@media (max-width: 768px) {
+  .header-cta { display: none !important; }
+}

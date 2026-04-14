@@ -31,6 +31,7 @@
     }
   }
   </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -43,15 +44,18 @@
         <span class="logo-mark">🧭</span>
         <span class="logo-text">留学コンパス</span>
       </a>
-      <nav class="nav">
-        <a href="#quiz">留学先診断</a>
-        <a href="#simulator">費用計算</a>
-        <a href="#countries">国別ガイド</a>
+      <nav class="nav" id="mainNav">
+        <a href="#quiz" onclick="closeNav()">留学先診断</a>
+        <a href="#simulator" onclick="closeNav()">費用計算</a>
+        <a href="#countries" onclick="closeNav()">国別ガイド</a>
         <a href="articles/direct-apply.html">直接申込</a>
         <a href="articles/preparation.html">準備リスト</a>
-        <a href="#parents">親向け</a>
+        <a href="#parents" onclick="closeNav()">親向け</a>
       </nav>
       <a href="articles/direct-apply.html" class="header-cta">直接申込ガイド →</a>
+      <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
@@ -509,7 +513,7 @@
 <section class="section timeline-section">
   <div class="container">
     <div class="section-label">TIMELINE</div>
-    <h2 class="section-title">高校生の留学スケジュール</h2>
+    <h2 class="section-title">留学スケジュール</h2>
     <p class="section-sub">「いつ、何をすれば間に合うか」を逆算する</p>
     <div class="timeline">
       <div class="tl-item">
@@ -646,20 +650,24 @@
           <p class="footer-col-title">ツール</p>
           <a href="#quiz">留学先診断</a>
           <a href="#simulator">費用シミュレーター</a>
+          <a href="articles/direct-apply.html">直接申込ガイド</a>
+          <a href="articles/preparation.html">留学準備リスト</a>
         </div>
         <div>
           <p class="footer-col-title">国別ガイド</p>
-          <a href="articles/canada.html">カナダ</a>
-          <a href="articles/australia.html">オーストラリア</a>
-          <a href="articles/newzealand.html">ニュージーランド</a>
-          <a href="articles/uk.html">イギリス</a>
-          <a href="articles/ireland.html">アイルランド</a>
+          <a href="articles/canada.html">🇨🇦 カナダ</a>
+          <a href="articles/australia.html">🇦🇺 オーストラリア</a>
+          <a href="articles/newzealand.html">🇳🇿 ニュージーランド</a>
+          <a href="articles/uk.html">🇬🇧 イギリス</a>
+          <a href="articles/ireland.html">🇮🇪 アイルランド</a>
         </div>
         <div>
-          <p class="footer-col-title">その他</p>
-          <a href="articles/preparation.html">留学準備リスト</a>
-          <a href="#parents">保護者の方へ</a>
-          <a href="#about">このサイトについて</a>
+          <p class="footer-col-title">お役立ち情報</p>
+          <a href="articles/cost-saving.html">費用節約の方法</a>
+          <a href="articles/scholarship.html">奨学金ガイド</a>
+          <a href="articles/parents-guide.html">保護者の方へ</a>
+          <a href="contact.html">お問い合わせ</a>
+          <a href="privacy.html">プライバシーポリシー</a>
         </div>
       </div>
     </div>
@@ -670,6 +678,26 @@
 </footer>
 
 <script>
+// ===== モバイルナビ =====
+function toggleNav() {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('navToggle');
+  nav.classList.toggle('mobile-open');
+  btn.classList.toggle('open');
+}
+function closeNav() {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('navToggle');
+  nav.classList.remove('mobile-open');
+  btn.classList.remove('open');
+}
+// 外側クリックで閉じる
+document.addEventListener('click', function(e) {
+  const nav = document.getElementById('mainNav');
+  const btn = document.getElementById('navToggle');
+  if (!nav.contains(e.target) && !btn.contains(e.target)) closeNav();
+});
+
 // ===== 留学先診断（10問・詳細版） =====
 const answers = {};
 const TOTAL_Q = 10;

@@ -33,6 +33,7 @@
     "mainEntityOfPage": "https://ryugaku-compass.netlify.app/articles/ireland.html"
   }
   </script>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../style.css">
   <link rel="stylesheet" href="../article.css">
 </head>
@@ -45,7 +46,8 @@
         <span class="logo-mark">🧭</span>
         <span class="logo-text">留学コンパス</span>
       </a>
-      <nav class="nav">
+            <nav class="nav" id="mainNav">
+        <a href="../">ホーム</a>
         <a href="../#quiz">留学先診断</a>
         <a href="../#simulator">費用計算</a>
         <a href="../#countries">国別ガイド</a>
@@ -53,6 +55,9 @@
         <a href="preparation.html">準備リスト</a>
         <a href="../#parents">親向け</a>
       </nav>
+      <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
