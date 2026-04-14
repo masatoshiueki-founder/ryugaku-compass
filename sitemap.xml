@@ -37,11 +37,26 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ryugaku-compass.netlify.app/articles/parents-guide.html</loc>
+    <loc>https://ryugaku-compass.netlify.app/articles/direct-apply.html</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ryugaku-compass.netlify.app/articles/preparation.html</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://ryugaku-compass.netlify.app/articles/parents-guide.html</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <url>
     <loc>https://ryugaku-compass.netlify.app/articles/cost-saving.html</loc>
     <lastmod>2025-04-13</lastmod>
