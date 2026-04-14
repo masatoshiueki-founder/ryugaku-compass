@@ -71,7 +71,9 @@
   </div>
 
   <div class="contact-form">
-    <form action="https://formspree.io/f/placeholder" method="POST">
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;"><label>スパム対策: <input name="bot-field"></label></p>
       <div class="form-group">
         <label class="form-label" for="name">お名前</label>
         <input type="text" id="name" name="name" class="form-input" placeholder="山田 太郎" required>
