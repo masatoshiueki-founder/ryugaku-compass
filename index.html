@@ -51,11 +51,12 @@
         <a href="#quiz" onclick="closeNav()">留学先診断</a>
         <a href="#simulator" onclick="closeNav()">費用計算</a>
         <a href="#countries" onclick="closeNav()">国別ガイド</a>
+        <a href="articles/compare.html">エージェント比較</a>
         <a href="articles/direct-apply.html">直接申込</a>
         <a href="articles/preparation.html">準備リスト</a>
         <a href="#parents" onclick="closeNav()">親向け</a>
       </nav>
-      <a href="articles/direct-apply.html" class="header-cta">直接申込ガイド →</a>
+      <a href="articles/compare.html" class="header-cta">エージェント vs 直接 →</a>
       <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="メニュー">
         <span></span><span></span><span></span>
       </button>
@@ -67,25 +68,23 @@
 <section class="hero">
   <div class="hero-bg-text" aria-hidden="true">STUDY ABROAD</div>
   <div class="container">
-    <div class="hero-badge">エージェント不要の留学ガイド</div>
+    <div class="hero-badge">エージェントに頼む前に知っておくこと</div>
     <h1 class="hero-title">
-      留学エージェントに<br>
-      頼む前に、<br>
-      <span class="hero-accent">ここを読んで。</span>
+      留学を決める前に、<br>
+      <span class="hero-accent">正直な情報を。</span>
     </h1>
     <p class="hero-desc">
-      エージェントが受け取る手数料は、語学学校・住居費の<strong>15〜30%</strong>。<br>
-      3ヶ月留学なら最大<strong>30万円</strong>が手数料で消えます。<br>
-      直接申し込めば節約できます。このサイトで全部わかります。
+      エージェントの「無料サービス」には仕組みがあります。学校から受け取る手数料が、学校選びに影響します。<br>
+      自分で直接申し込む方法も、信頼できるエージェントの選び方も。<strong>中立な立場</strong>で、全部まとめました。
     </p>
     <div class="hero-ctas">
-      <a href="articles/direct-apply.html" class="btn-primary">エージェントなしで申し込む →</a>
+      <a href="articles/compare.html" class="btn-primary">エージェント vs 直接申込 比較 →</a>
       <a href="#quiz" class="btn-secondary">まず留学先を診断する</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
         <span class="stat-num">30万円</span>
-        <span class="stat-label">節約できる目安（3ヶ月）</span>
+        <span class="stat-label">エージェント手数料の目安（3ヶ月）</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
@@ -94,32 +93,35 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num">無料</span>
-        <span class="stat-label">全コンテンツ無料</span>
+        <span class="stat-num">中立</span>
+        <span class="stat-label">エージェント無提携・正直な情報</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 問題提起 -->
+<!-- 3つの選択肢 -->
 <section class="problem-section">
   <div class="container">
-    <h2 class="problem-title">誰も教えてくれなかった、3つの真実</h2>
+    <h2 class="problem-title">あなたはどのパターン？</h2>
     <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">💸</div>
-        <h3>エージェントは中立じゃない</h3>
-        <p>留学エージェントは、あなたを特定の学校に紹介するほど手数料が増えます。あなたにとって最善の提案が、エージェントにとって最高の提案とは限りません。</p>
+      <div class="problem-card" style="cursor:pointer;" onclick="location.href='articles/compare.html'">
+        <div class="problem-icon">⚖️</div>
+        <h3>まず比較したい</h3>
+        <p>エージェントと直接申込、どっちが自分に向いているか分からない。費用差・メリット・デメリットを正直に比較しました。</p>
+        <p style="color:#FF4828; font-weight:700; font-size:0.85rem; margin-top:8px;">→ 比較ガイドを読む</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">🔍</div>
-        <h3>直接申し込みは難しくない</h3>
-        <p>語学学校のほとんどは日本語サポートのあるウェブサイトから直接申込できます。ビザも手順通りにやれば高校生でも申請できます。</p>
+      <div class="problem-card" style="cursor:pointer;" onclick="location.href='articles/direct-apply.html'">
+        <div class="problem-icon">✈️</div>
+        <h3>自分で直接申し込む</h3>
+        <p>費用を節約して自分で手配したい。カナダ・オーストラリア・NZ・英国・アイルランドの認定校に直接申し込む手順をまとめました。</p>
+        <p style="color:#FF4828; font-weight:700; font-size:0.85rem; margin-top:8px;">→ 直接申込ガイドを読む</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">👨‍👩‍👧</div>
-        <h3>親の反対が一番の壁</h3>
-        <p>留学を諦める理由No.1は「親が反対」。費用・安全性・大学受験への影響、親が不安に思うことへの答えをまとめました。</p>
+      <div class="problem-card" style="cursor:pointer;" onclick="location.href='articles/compare.html#good-agent'">
+        <div class="problem-icon">🤝</div>
+        <h3>エージェントを選びたい</h3>
+        <p>安心のためエージェントを使いたい。ただし、バイアスのない信頼できるエージェントを選ぶポイントを解説します。</p>
+        <p style="color:#FF4828; font-weight:700; font-size:0.85rem; margin-top:8px;">→ エージェントの選び方</p>
       </div>
     </div>
   </div>
@@ -699,6 +701,7 @@
         </div>
         <div>
           <p class="footer-col-title">お役立ち情報</p>
+          <a href="articles/compare.html">エージェント vs 直接申込</a>
           <a href="articles/cost-saving.html">費用節約の方法</a>
           <a href="articles/scholarship.html">奨学金ガイド</a>
           <a href="articles/insurance.html">留学保険比較</a>

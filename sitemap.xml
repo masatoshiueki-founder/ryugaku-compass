@@ -76,6 +76,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ryugaku-direct.netlify.app/articles/compare.html</loc>
+    <lastmod>2025-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://ryugaku-direct.netlify.app/about.html</loc>
     <lastmod>2025-04-14</lastmod>
     <changefreq>yearly</changefreq>
