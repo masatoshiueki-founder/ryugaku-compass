@@ -394,11 +394,13 @@
         <div class="sim-group">
           <label class="sim-label">期間</label>
           <div class="sim-select-wrap">
-            <select class="sim-select" id="simMonths" onchange="calcCost()">
-              <option value="1">1ヶ月</option>
-              <option value="2">2ヶ月</option>
-              <option value="3" selected>3ヶ月</option>
-              <option value="6">6ヶ月</option>
+            <select class="sim-select" id="simWeeks" onchange="calcCost()">
+              <option value="2">2週間</option>
+              <option value="4">4週間（1ヶ月）</option>
+              <option value="8">8週間（2ヶ月）</option>
+              <option value="12" selected>12週間（3ヶ月）</option>
+              <option value="16">16週間（4ヶ月）</option>
+              <option value="24">24週間（6ヶ月）</option>
             </select>
           </div>
         </div>
@@ -414,26 +416,7 @@
         </div>
       </div>
 
-      <div class="sim-results">
-        <div class="sim-card direct">
-          <div class="sim-card-label">直接申込の場合</div>
-          <div class="sim-total" id="simDirectTotal">¥—</div>
-          <div class="sim-breakdown" id="simDirectBreak"></div>
-        </div>
-        <div class="sim-vs">
-          <div class="sim-save-badge">
-            <span class="sim-save-label">節約できる金額</span>
-            <span class="sim-save-amt" id="simSave">—</span>
-          </div>
-        </div>
-        <div class="sim-card agent">
-          <div class="sim-card-label">エージェント経由の場合</div>
-          <div class="sim-total" id="simAgentTotal">¥—</div>
-          <div class="sim-breakdown" id="simAgentBreak"></div>
-        </div>
-      </div>
-
-      <p class="sim-note">※ 航空券・ビザ費用・保険料は別途。あくまで目安です。為替レート（1USD≈150円、1AUD≈95円等）で変動します。</p>
+      <div id="simOutput"></div>
     </div>
   </div>
 </section>
@@ -768,10 +751,26 @@ function showResult() {
   const second = ranked[1];
   const maxScore = scores[top.key] + scores[second.key] + 1;
 
-  // シミュレーター連動
+  // シミュレーター連動（診断結果の国に自動切替）
   const simMap = { canada:'canada', nz:'nz', australia:'australia', uk:'uk', ireland:'ireland' };
   const simCountryEl = document.getElementById('simCountry');
   if (simCountryEl) { simCountryEl.value = simMap[top.key]; calcCost(); }
+
+  // 診断結果内にインライン費用プレビューを生成
+  const dInline = costData[top.key];
+  const weeksInline = 12;
+  const schoolInline  = dInline.school  * weeksInline;
+  const housingInline = dInline.homestay * weeksInline;
+  const livingInline  = dInline.living  * weeksInline;
+  const otherInline   = dInline.ins * weeksInline + dInline.visa + dInline.enroll;
+  const directInline  = schoolInline + housingInline + livingInline + otherInline + dInline.flight;
+  const agentInline   = Math.round((schoolInline + housingInline) * 0.22);
+  const inlineCostHTML = `<div class="result-cost-embed">
+    <div style="font-size:0.72rem;color:#888;margin-bottom:8px">💰 ${top.name}・3ヶ月・ホームステイの費用目安</div>
+    <div class="rce-row"><span>直接申込</span><span class="rce-total-val">${fmt(directInline)}</span></div>
+    <div class="rce-row" style="margin-top:4px"><span style="color:#f87171">エージェント経由</span><span style="color:#f87171">${fmt(directInline + agentInline)}</span></div>
+    <div style="font-size:0.72rem;color:#6ee7b7;margin-top:8px">直接申込で <strong>${fmt(agentInline)}</strong> 節約できます</div>
+  </div>`;
 
   // WHVヒント
   const showWhv = answers[9] === 'adult' && answers[3] === 'long';
@@ -808,6 +807,7 @@ function showResult() {
       </div>
     </div>
     ${whvHint}
+    ${inlineCostHTML}
     <div class="result-guide-link">
       <a href="${top.guide}" class="btn-dark-outline">${top.flag} ${top.name}の詳細ガイドを見る →</a>
     </div>
@@ -958,51 +958,91 @@ function resetQuiz() {
 }
 
 // ===== 費用シミュレーター =====
+// 週単位レート（円）
 const costData = {
-  canada:    { school: 140000, homestay: 100000, dorm: 85000, share: 68000, living: 60000, flight: 160000 },
-  australia: { school: 150000, homestay: 115000, dorm: 95000, share: 75000, living: 70000, flight: 120000 },
-  nz:        { school: 110000, homestay: 88000,  dorm: 72000, share: 58000, living: 50000, flight: 130000 },
-  uk:        { school: 175000, homestay: 135000, dorm: 120000, share: 95000, living: 85000, flight: 150000 },
-  ireland:   { school: 135000, homestay: 115000, dorm: 92000, share: 75000, living: 65000, flight: 180000 }
+  canada:    { school: 35000, homestay: 25000, dorm: 21000, share: 17000, living: 15000, flight: 160000, ins: 2500, visa: 3000,  enroll: 25000 },
+  australia: { school: 37500, homestay: 29000, dorm: 24000, share: 19000, living: 17500, flight: 120000, ins: 2500, visa: 15000, enroll: 25000 },
+  nz:        { school: 27500, homestay: 22000, dorm: 18000, share: 14500, living: 12500, flight: 130000, ins: 2500, visa: 3000,  enroll: 20000 },
+  uk:        { school: 43750, homestay: 33750, dorm: 30000, share: 23750, living: 21250, flight: 150000, ins: 3000, visa: 12500, enroll: 30000 },
+  ireland:   { school: 33750, homestay: 28750, dorm: 23000, share: 18750, living: 16250, flight: 180000, ins: 2500, visa: 0,     enroll: 25000 }
 };
 
 function fmt(n) {
-  return '¥' + Math.round(n / 10000) + '万';
+  const man = Math.round(n / 10000);
+  return man >= 1 ? '¥' + man + '万' : '¥' + Math.round(n / 1000) + '千';
+}
+
+function simBar(label, val, pct, cls) {
+  return `<div class="sim-bar-item">
+    <span style="font-size:0.72rem;color:#aaa;width:96px;flex-shrink:0">${label}</span>
+    <div class="sim-bar-track"><div class="sim-bar-fill ${cls}" style="width:${pct}%"></div></div>
+    <span style="font-size:0.75rem;color:#eee;width:52px;text-align:right;flex-shrink:0">${fmt(val)}</span>
+  </div>`;
 }
 
 function calcCost() {
-  const country = document.getElementById('simCountry').value;
-  const months = parseInt(document.getElementById('simMonths').value);
-  const housing = document.getElementById('simHousing').value;
-  const d = costData[country];
+  const country  = document.getElementById('simCountry').value;
+  const weeks    = parseInt(document.getElementById('simWeeks').value);
+  const housing  = document.getElementById('simHousing').value;
+  const d        = costData[country];
 
-  const schoolTotal = d.school * months;
-  const housingTotal = d[housing] * months;
-  const livingTotal = d.living * months;
-  const directTotal = schoolTotal + housingTotal + livingTotal + d.flight;
+  const schoolTotal  = d.school  * weeks;
+  const housingTotal = d[housing] * weeks;
+  const livingTotal  = d.living  * weeks;
+  const insTotal     = d.ins     * weeks;
+  const visaTotal    = d.visa;
+  const enrollTotal  = d.enroll;
+  const flightTotal  = d.flight;
+  const otherTotal   = insTotal + visaTotal + enrollTotal;
 
-  const agentFee = Math.round((schoolTotal + housingTotal) * 0.22);
-  const agentTotal = directTotal + agentFee;
-  const save = agentTotal - directTotal;
+  const directTotal = schoolTotal + housingTotal + livingTotal + otherTotal + flightTotal;
+  const agentFee    = Math.round((schoolTotal + housingTotal) * 0.22);
+  const agentTotal  = directTotal + agentFee;
 
-  document.getElementById('simDirectTotal').textContent = fmt(directTotal);
-  document.getElementById('simDirectBreak').innerHTML = `
-    <div class="sim-row"><span>語学学校（${months}ヶ月）</span><span>${fmt(schoolTotal)}</span></div>
-    <div class="sim-row"><span>${housing === 'homestay' ? 'ホームステイ' : housing === 'dorm' ? '学生寮' : 'シェアハウス'}（${months}ヶ月）</span><span>${fmt(housingTotal)}</span></div>
-    <div class="sim-row"><span>生活費（${months}ヶ月）</span><span>${fmt(livingTotal)}</span></div>
-    <div class="sim-row"><span>航空券（往復）</span><span>${fmt(d.flight)}</span></div>
+  const maxVal = Math.max(schoolTotal, housingTotal, livingTotal, flightTotal, otherTotal, agentFee, 1);
+  const pct    = v => Math.round(v / maxVal * 100);
+
+  const housingLabel = housing === 'homestay' ? 'ホームステイ' : housing === 'dorm' ? '学生寮' : 'シェアハウス';
+  const feeChip = agentFee >= 200000 ? `往復航空券が丸ごと買える金額` :
+                  agentFee >= 100000 ? `語学学校が約1ヶ月分追加できる金額` :
+                  `現地生活費が約1ヶ月分の金額`;
+
+  document.getElementById('simOutput').innerHTML = `
+    <div class="sim-full-result">
+      <div class="sim-result-header">
+        <div>
+          <span style="font-size:0.72rem;color:#888;text-transform:uppercase;letter-spacing:0.05em">直接申込の場合</span>
+          <div style="font-size:2rem;font-weight:900;color:#fff;line-height:1.2">${fmt(directTotal)}</div>
+        </div>
+        <div style="text-align:center;padding:0 12px">
+          <div style="font-size:0.68rem;color:#888">エージェント経由</div>
+          <div style="font-size:0.9rem;font-weight:700;color:#f87171">${fmt(agentTotal)}</div>
+          <div style="font-size:0.62rem;color:#888;margin-top:2px">手数料込み</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:0.72rem;color:#888">直接申込で節約</div>
+          <div style="font-size:1.6rem;font-weight:900;color:#34D399;line-height:1.2">+${fmt(agentFee)}</div>
+          <div style="font-size:0.65rem;color:#6ee7b7;max-width:120px">${feeChip}</div>
+        </div>
+      </div>
+      <div style="padding:20px 24px">
+        ${simBar('語学学校', schoolTotal, pct(schoolTotal), 'fill-school')}
+        ${simBar(housingLabel, housingTotal, pct(housingTotal), 'fill-housing')}
+        ${simBar('生活費', livingTotal, pct(livingTotal), 'fill-living')}
+        ${simBar('航空券', flightTotal, pct(flightTotal), 'fill-flight')}
+        ${simBar('保険・ビザ・入学金', otherTotal, pct(otherTotal), 'fill-ins')}
+      </div>
+      <div class="sim-fee-box">
+        ${simBar('エージェント手数料', agentFee, pct(agentFee), 'fill-fee')}
+        <p style="font-size:0.72rem;color:#f87171;margin:8px 0 0">※ 直接申込なら この${fmt(agentFee)}が手元に残ります</p>
+      </div>
+      <div class="sim-ctarow">
+        <a href="articles/direct-apply.html" class="sim-cta-a">直接申込の手順を見る →</a>
+        <a href="articles/compare.html" class="sim-cta-a" style="background:#1e293b;border:1px solid #334155">エージェントと比較する →</a>
+      </div>
+    </div>
+    <p class="sim-note" style="margin-top:12px">※ 週単位の目安です。為替・学校・時期により変動します。保険はt@biho参考値。</p>
   `;
-
-  document.getElementById('simAgentTotal').textContent = fmt(agentTotal);
-  document.getElementById('simAgentBreak').innerHTML = `
-    <div class="sim-row"><span>語学学校（${months}ヶ月）</span><span>${fmt(schoolTotal)}</span></div>
-    <div class="sim-row"><span>${housing === 'homestay' ? 'ホームステイ' : housing === 'dorm' ? '学生寮' : 'シェアハウス'}（${months}ヶ月）</span><span>${fmt(housingTotal)}</span></div>
-    <div class="sim-row"><span>生活費（${months}ヶ月）</span><span>${fmt(livingTotal)}</span></div>
-    <div class="sim-row"><span>航空券（往復）</span><span>${fmt(d.flight)}</span></div>
-    <div class="sim-row sim-row-fee"><span>エージェント手数料（約22%）</span><span>+${fmt(agentFee)}</span></div>
-  `;
-
-  document.getElementById('simSave').textContent = fmt(save) + '節約';
 }
 
 // 初期計算
